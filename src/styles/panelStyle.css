@@ -1,0 +1,45 @@
+
+.button_container {
+    display: flex;
+    height: 300px;
+    gap: 20px;
+    margin-bottom: 25px;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    padding: 0 16px;
+}
+
+.container > .title {
+    text-align: center;
+    font-size: 40px;
+}
+
+.button_container > .button {
+    flex-grow: 0;
+}
+
+.button_container > .button.green {
+    background-color: rgb(90, 199, 99);
+    color: white;
+}
+
+.button_container > .button.green {
+    background-color: rgb(90, 199, 99);
+    color: white;
+}
+
+.button_container > .button.blue {
+    background-color: rgb(47, 176, 255);
+    color: white;
+}
+
+.button_container > .button.violet {
+    background-color: rgb(149, 59, 196);
+    color: white;
+}
