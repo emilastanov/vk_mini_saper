@@ -6,6 +6,8 @@ import '@vkontakte/vkui/dist/vkui.css';
 import Home from './panels/Home';
 import About from "./panels/About";
 import Rules from "./panels/Rules";
+import Game from "./panels/Game";
+import Settings from "./panels/Settings";
 
 const App = () => {
 	const [activePanel, setActivePanel] = useState('home');
@@ -32,9 +34,11 @@ const App = () => {
 					<SplitLayout popout={popout}>
 						<SplitCol>
 							<View activePanel={activePanel}>
-								<Home id='home' fetchedUser={fetchedUser} go={go} />
-								<About id='about' fetchedUser={fetchedUser} go={go} />
-								<Rules id='rules' fetchedUser={fetchedUser} go={go} />
+								<Home id="home" go={go} />
+								<About id="about" go={go} />
+								<Rules id="rules" go={go} />
+								<Game id="game" go={go}/>
+								<Settings id="settings" go={go}/>
 							</View>
 						</SplitCol>
 					</SplitLayout>
