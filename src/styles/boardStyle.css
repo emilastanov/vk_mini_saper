@@ -10,7 +10,7 @@
     align-items: center;
     justify-content: center;
     background: #bfbfbf;
-
+    font-weight: bold;
 }
 
 .board > .board__cell.checked {

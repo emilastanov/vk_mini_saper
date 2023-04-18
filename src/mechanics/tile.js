@@ -1,49 +1,66 @@
+import {getAdjacentCoords} from "../helpers/boardHelpers";
+import {tilesStateUpdater} from "../helpers/tileHelpers";
 
-export function createTiles(width, height) {
-    const tiles = [];
 
-    for (let x = 0; x < width; x++) {
-        for (let y = 0; y < height; y++) {
-            tiles.push({
-                coords: {x, y},
-                checked: false,
-                flagged: false
-            });
-        }
-    }
-
-    return tiles;
-}
-
-export function pushTile(gameMode, tile, updateTilesState) {
+export function pushTile(
+    bombsList,
+    gameMode,
+    prompts,
+    tile,
+    tiles,
+    setTilesState
+) {
+    const tsu = tilesStateUpdater(tiles, setTilesState, );
 
     if (gameMode === 'flag') {
         !(tile.flagged || tile.checked) &&
-        updateTilesState(tile.coords, {
+        tsu(tile.coords, {
             flagged: true
         })
+
     } else {
-        !(tile.flagged || tile.checked) &&
+        if(!(tile.flagged || tile.checked)){
+            digTile(
+                tile,
+                tiles,
+                bombsList,
+                prompts,
+                tsu
+            );
+        }
+    }
+}
+
+function digTile(tile, tiles, bombsList, prompts, updateTilesState) {
+    const hasBomb = bombsList && bombsList[tile.coords.x][tile.coords.y];
+    const prompt = prompts ? prompts[tile.coords.x][tile.coords.y]: 0;
+
+    if (hasBomb) {
+
+    } else {
         updateTilesState(tile.coords, {
-            checked: true
+            checked: true,
+            prompt
         })
     }
 }
 
-export function tilesStateUpdater(tilesState, setter) {
+function digAdjacentTiles(tiles, startedTile, bombsList, prompts, updateTilesState) {
+    const adjacentTilesCoords = getAdjacentCoords(startedTile.coords);
+    adjacentTilesCoords.forEach(coords=>{
+        const tileIndex = tiles.findIndex(tile=>(
+            (tile.coords.x === coords.x) && (tile.coords.y === coords.y)
+        ));
+        const tile = tiles[tileIndex];
 
-    return function(coords, newState) {
-        const newTilesState = [...tilesState];
-        let updatingTileIndex = newTilesState.findIndex(tile=>tile.coords === coords);
+        const hasBomb = bombsList && bombsList[tile.coords.x][tile.coords.y];
+        const prompt = prompts ? prompts[tile.coords.x][tile.coords.y]: 0;
 
-
-        newTilesState[updatingTileIndex] = {
-            ...newTilesState[updatingTileIndex],
-            ...newState
-        };
-
-        setter(newTilesState)
-    }
+        digTile(
+            tile,
+            hasBomb,
+            prompt,
+            updateTilesState
+        );
+    })
 }
-
-
