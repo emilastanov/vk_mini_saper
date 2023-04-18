@@ -5,7 +5,14 @@
     box-sizing: border-box;
 }
 
-.board__cell {
-    display: block;
+.board > .board__cell {
+    display: flex;
+    align-items: center;
+    justify-content: center;
     background: #bfbfbf;
+
+}
+
+.board > .board__cell.checked {
+    background: #efefef;
 }
