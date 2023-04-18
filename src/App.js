@@ -13,8 +13,10 @@ const App = () => {
 	const [activePanel, setActivePanel] = useState('home');
 	const [fetchedUser, setUser] = useState(null);
 	const [popout, setPopout] = useState(null);
+	const [deviceWidth, setDeviceWidth] = useState(null);
 
 	useEffect(() => {
+		setDeviceWidth(window.innerWidth);
 		async function fetchData() {
 			const user = await bridge.send('VKWebAppGetUserInfo');
 			setUser(user);
@@ -37,7 +39,7 @@ const App = () => {
 								<Home id="home" go={go} />
 								<About id="about" go={go} />
 								<Rules id="rules" go={go} />
-								<Game id="game" go={go}/>
+								<Game id="game" go={go} deviceWidth={deviceWidth}/>
 								<Settings id="settings" go={go}/>
 							</View>
 						</SplitCol>

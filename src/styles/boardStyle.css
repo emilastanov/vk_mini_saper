@@ -1,0 +1,11 @@
+
+.board {
+    display: grid;
+    margin: 25px auto;
+    box-sizing: border-box;
+}
+
+.board__cell {
+    display: block;
+    background: #bfbfbf;
+}
