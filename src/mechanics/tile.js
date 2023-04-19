@@ -8,9 +8,11 @@ export function pushTile(
     prompts,
     tile,
     tiles,
-    setTilesState
+    setTilesState,
+    setGameState,
+    gameState
 ) {
-    const tsu = tilesStateUpdater(tiles, setTilesState, );
+    const tsu = tilesStateUpdater(tiles, setTilesState);
 
     if (gameMode === 'flag') {
         !(tile.flagged || tile.checked) &&
@@ -26,34 +28,41 @@ export function pushTile(
                 bombsList,
                 prompts,
                 tsu,
-                setTilesState
+                setTilesState,
+                setGameState,
+                gameState
             );
         }
     }
 }
 
-function digTile(tile, tiles, bombsList, prompts, updateTilesState, setTilesState) {
+function digTile(tile, tiles, bombsList, prompts, updateTilesState, setTilesState, setGameState, gameState) {
     const hasBomb = bombsList && bombsList[tile.coords.x][tile.coords.y];
     const prompt = prompts ? prompts[tile.coords.x][tile.coords.y]: 0;
 
-    if (hasBomb) {
+    if (gameState === "IN_PROGRESS") {
 
-    } else {
-        const newTilesState = updateTilesState(tile.coords, {
-            checked: true,
-            prompt
-        });
-        tile.checked = true;
-        tile.prompt = prompt;
+        if (hasBomb) {
+            setTilesState(explodeBombs(bombsList, tiles));
+            setGameState('GAME_OVER');
 
-        if (prompt === 0){
-            setTilesState(digAdjacentTiles(newTilesState, tile, bombsList, prompts, updateTilesState));
+        } else {
+            const newTilesState = updateTilesState(tile.coords, {
+                checked: true,
+                prompt
+            });
+            tile.checked = true;
+            tile.prompt = prompt;
+
+            if (prompt === 0){
+                setTilesState(digAdjacentTiles(newTilesState, tile, bombsList, prompts, updateTilesState));
+            }
+
         }
-
     }
 }
 
-function digAdjacentTiles(tiles, startedTile, bombsList, prompts, updateTilesState) {
+function digAdjacentTiles(tiles, startedTile, bombsList, prompts) {
 
     const adjacentTilesCoords = getAdjacentCoords(startedTile.coords);
 
@@ -81,4 +90,18 @@ function digAdjacentTiles(tiles, startedTile, bombsList, prompts, updateTilesSta
     }
 
     return tiles;
+}
+
+function explodeBombs(bombList, tiles) {
+    const newTilesState = [...tiles];
+
+    for (let x = 0; x < bombList.length; x++) {
+        for (let y = 0; y < bombList[x].length; y++) {
+            const tileIndex = newTilesState.findIndex(tile=>(
+                (tile.coords.x === x) && (tile.coords.y === y)
+            ));
+            newTilesState[tileIndex].exploded = !!bombList[x][y];
+        }
+    }
+    return newTilesState;
 }

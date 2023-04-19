@@ -14,8 +14,10 @@ const Board = ({
     numberOfBombs,
     setTilesState,
     setBombsList,
+    setGameState,
     setPrompts,
     tilesState,
+    gameState,
     gameMode,
     bombsList,
     prompts,
@@ -53,7 +55,9 @@ const Board = ({
             _prompts,
             tile,
             tilesState,
-            setTilesState
+            setTilesState,
+            setGameState,
+            gameState
         );
     }
 

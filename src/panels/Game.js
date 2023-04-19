@@ -13,6 +13,7 @@ const Game = ({ id, go, deviceWidth, size, numberOfBombs }) => {
     const boardHeight = numberOfTilesMap[size];
     const boardWidth = numberOfTilesMap[size];
 
+    const [gameState, setGameState] = useState('IN_PROGRESS');
     const [bombsList, setBombsList] = useState(null);
     const [prompts, setPrompts] = useState(null);
     const [tilesState, setTilesState] = useState(
@@ -26,8 +27,10 @@ const Game = ({ id, go, deviceWidth, size, numberOfBombs }) => {
         <Board
             setTilesState={setTilesState}
             setBombsList={setBombsList}
+            setGameState={setGameState}
             setPrompts={setPrompts}
             tilesState={tilesState}
+            gameState={gameState}
             bombsList={bombsList}
             deviceWidth={deviceWidth}
             prompts={prompts}
