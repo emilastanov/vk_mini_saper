@@ -6,8 +6,8 @@ import panelStyle from '../styles/panelStyle.css';
 
 
 const Rules = ({ id, go }) => (
-    <Panel id={id}>
 
+    <Panel id={id}>
         <Group>
             <Div className="container">
                 <h1 className="title">{title}</h1>
@@ -18,14 +18,12 @@ const Rules = ({ id, go }) => (
                     stretched
                 >
                     <p align="center" style={{padding: 16}} dangerouslySetInnerHTML={{ __html: paragraph }} />
-                    {buttons.map((
-                        {
+                    {buttons.map(({
                             className,
                             text,
                             mode,
                             goTo
-                        }
-                    )=>(
+                    })=>(
                         <Button
                             className={className}
                             data-to={goTo}

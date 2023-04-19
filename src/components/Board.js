@@ -1,13 +1,13 @@
 import React, {useEffect, useState} from "react";
 
-import {numberOfTilesMap, sizeOfTileMap, tilesGap} from "../static/texts/boardData";
 import {pushTile as pushTileMechanic} from "../mechanics/tile";
 import {makeBoardConstants} from "../helpers/boardHelpers";
 
 import Tile from "./Tile";
 
-import boardStyle from '../styles/boardStyle.css';
 import {generateBombs, generatePrompts} from "../mechanics/board";
+
+import boardStyle from '../styles/boardStyle.css';
 
 
 const Board = ({
@@ -19,35 +19,42 @@ const Board = ({
     gameMode,
     bombsList,
     prompts,
-    width,
+    deviceWidth,
     size
 }) => {
 
-    useEffect(()=>{
-        bombsList && (()=>{
-            setPrompts(generatePrompts(bombsList, numberOfColumns));
-        })()
-    }, [bombsList])
-
     const [isFirstClick, setFirstClickState] = useState(true);
 
-    const {gap, gridTemplateColumns, sizeOfTiles, numberOfColumns} = makeBoardConstants(size, width);
+    const {
+        gap,
+        gridTemplateColumns,
+        sizeOfTiles,
+        numberOfColumns
+    } = makeBoardConstants(size, deviceWidth);
 
 
     const pushTile = (tile) => {
-        isFirstClick && (() => {
-            setBombsList(generateBombs(tile.coords, numberOfBombs, numberOfColumns));
+
+        let _bombList = bombsList;
+        let _prompts = prompts;
+
+        if (isFirstClick) {
+            _bombList = generateBombs(tile.coords, numberOfBombs, numberOfColumns);
+            _prompts = generatePrompts(_bombList, numberOfColumns);
+
             setFirstClickState(false);
-        })()
+            setBombsList(_bombList);
+            setPrompts(_prompts);
+        }
 
         pushTileMechanic(
-            bombsList,
+            _bombList,
             gameMode,
-            prompts,
+            _prompts,
             tile,
             tilesState,
             setTilesState
-        )
+        );
     }
 
 

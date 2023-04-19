@@ -8,16 +8,16 @@ import {createTiles} from "../helpers/tileHelpers";
 import panelStyle from '../styles/panelStyle.css';
 
 
-const Game = ({ id, go, deviceWidth, size }) => {
+const Game = ({ id, go, deviceWidth, size, numberOfBombs }) => {
 
     const boardHeight = numberOfTilesMap[size];
     const boardWidth = numberOfTilesMap[size];
 
+    const [bombsList, setBombsList] = useState(null);
+    const [prompts, setPrompts] = useState(null);
     const [tilesState, setTilesState] = useState(
         createTiles(boardWidth, boardHeight)
     );
-    const [bombsList, setBombsList] = useState(null);
-    const [prompts, setPrompts] = useState(null);
 
     return <Panel id={id}>
         <PanelHeader before={<PanelHeaderBack onClick={go} data-to='home'/>}>
@@ -29,11 +29,11 @@ const Game = ({ id, go, deviceWidth, size }) => {
             setPrompts={setPrompts}
             tilesState={tilesState}
             bombsList={bombsList}
-            width={deviceWidth}
+            deviceWidth={deviceWidth}
             prompts={prompts}
-            numberOfBombs={10}
+            numberOfBombs={numberOfBombs}
             gameMode={'dig'}
-            size='s'
+            size={size}
         />
     </Panel>
 };

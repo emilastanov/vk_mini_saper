@@ -7,8 +7,8 @@ import panelStyle from '../styles/panelStyle.css';
 
 
 const Home = ({ id, go }) => (
-	<Panel id={id}>
 
+	<Panel id={id}>
 		<Group>
 			<Div className="container">
 				<h1 className="title">{title}</h1>
@@ -17,14 +17,12 @@ const Home = ({ id, go }) => (
 					mode="vertical"
 					stretched
 				>
-					{buttons.map((
-						{
+					{buttons.map(({
 							className,
 							text,
 							mode,
 							goTo
-						}
-					)=>(
+					})=>(
 						<Button
 							className={className}
 							data-to={goTo}

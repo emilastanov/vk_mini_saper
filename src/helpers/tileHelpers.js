@@ -14,6 +14,8 @@ export function tilesStateUpdater(tilesState, setter) {
         };
 
         setter(newTilesState)
+
+        return newTilesState;
     }
 }
 
