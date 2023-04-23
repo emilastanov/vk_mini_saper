@@ -17,12 +17,12 @@ const App = () => {
 
 	useEffect(() => {
 		setDeviceWidth(window.innerWidth);
-		async function fetchData() {
-			const user = await bridge.send('VKWebAppGetUserInfo');
-			setUser(user);
-			setPopout(null);
-		}
-		fetchData();
+		// async function fetchData() {
+		// 	const user = await bridge.send('VKWebAppGetUserInfo');
+		// 	setUser(user);
+		// 	setPopout(null);
+		// }
+		// fetchData();
 	}, []);
 
 	const go = e => {

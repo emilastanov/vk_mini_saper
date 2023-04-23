@@ -1,9 +1,10 @@
 import React, {useState} from 'react';
 import { Panel, PanelHeader, PanelHeaderBack } from '@vkontakte/vkui';
 
-import Board from "../components/Board";
-import {numberOfTilesMap} from "../static/texts/boardData";
+import {numberOfTilesMap, switcherSize} from "../static/texts/boardData";
 import {createTiles} from "../helpers/tileHelpers";
+import Switcher from "../components/Swither";
+import Board from "../components/Board";
 
 import panelStyle from '../styles/panelStyle.css';
 
@@ -15,6 +16,7 @@ const Game = ({ id, go, deviceWidth, size, numberOfBombs }) => {
 
     const [gameState, setGameState] = useState('IN_PROGRESS');
     const [bombsList, setBombsList] = useState(null);
+    const [gameMode, setGameMode] = useState('dig');
     const [prompts, setPrompts] = useState(null);
     const [tilesState, setTilesState] = useState(
         createTiles(boardWidth, boardHeight)
@@ -35,9 +37,10 @@ const Game = ({ id, go, deviceWidth, size, numberOfBombs }) => {
             deviceWidth={deviceWidth}
             prompts={prompts}
             numberOfBombs={numberOfBombs}
-            gameMode={'dig'}
+            gameMode={gameMode}
             size={size}
         />
+        <Switcher state={gameMode} setState={setGameMode} size={switcherSize}/>
     </Panel>
 };
 

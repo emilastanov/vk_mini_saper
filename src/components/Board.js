@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from "react";
 
 import {pushTile as pushTileMechanic} from "../mechanics/tile";
-import {makeBoardConstants} from "../helpers/boardHelpers";
+import {calculateBoardConstants} from "../helpers/boardHelpers";
 
 import Tile from "./Tile";
 
@@ -32,7 +32,7 @@ const Board = ({
         gridTemplateColumns,
         sizeOfTiles,
         numberOfColumns
-    } = makeBoardConstants(size, deviceWidth);
+    } = calculateBoardConstants(size, deviceWidth);
 
 
     const pushTile = (tile) => {

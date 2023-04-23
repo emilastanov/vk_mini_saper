@@ -2,7 +2,7 @@ import React from 'react';
 import { Panel, Button, Group, ButtonGroup, Div } from '@vkontakte/vkui';
 
 import {buttons, title, iconSize} from '../static/texts/homePanelData.js';
-import {Icon as PatchedBomb} from '../static/icons/patchedBomb.js'
+import {PatchedBomb} from '../static/icons/patchedBomb.js'
 import panelStyle from '../styles/panelStyle.css';
 
 

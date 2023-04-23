@@ -17,3 +17,9 @@
 .board > .board__cell.checked {
     background: #efefef;
 }
+
+.board > .board__cell.flagged {
+    box-sizing: border-box;
+    border: 2.5px solid #e3e3e3;
+    background: #efefef;
+}

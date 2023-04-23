@@ -1,0 +1,1 @@
+export {sumTwoDimensionalArray} from './sumTwoDimensionalArray';

@@ -11,7 +11,7 @@ const Tile = ({size, state, onClick}) => (
 
     <div
         style={{width: size, height: size, fontSize: size*0.5, color: getTileTextColor(state.prompt)}}
-        className={`board__cell ${state.checked || state.flagged? 'checked' : ''}`}
+        className={`board__cell ${(state.checked && 'checked') || (state.flagged && 'flagged')}`}
         onClick={onClick}
     >
         {state.exploded && <Bomb size={size*0.5} />}

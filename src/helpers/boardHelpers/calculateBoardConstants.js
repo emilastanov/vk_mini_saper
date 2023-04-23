@@ -1,7 +1,6 @@
-import {numberOfTilesMap, sizeOfTileMap, tilesGap} from "../static/texts/boardData";
+import {numberOfTilesMap, sizeOfTileMap, tilesGap} from "../../static/texts/boardData";
 
-
-export const makeBoardConstants = (size, width) => {
+export const calculateBoardConstants = (size, width) => {
     const numberOfColumns = numberOfTilesMap[size];
 
     const deviceScale =
@@ -21,14 +20,3 @@ export const makeBoardConstants = (size, width) => {
 
     return {gap, gridTemplateColumns, sizeOfTiles, numberOfColumns};
 };
-
-export const getAdjacentCoords = (coords) => ([
-    {x: coords.x + 1, y: coords.y},
-    {x: coords.x - 1, y: coords.y},
-    {x: coords.x, y: coords.y + 1},
-    {x: coords.x, y: coords.y - 1},
-    {x: coords.x + 1, y: coords.y - 1},
-    {x: coords.x - 1, y: coords.y - 1},
-    {x: coords.x + 1, y: coords.y + 1},
-    {x: coords.x - 1, y: coords.y + 1}
-]);
