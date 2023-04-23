@@ -8,30 +8,26 @@ export function digTile(tileCoords, tiles, bombsList, prompts, setGameState, gam
 
     const opTilesState = [...tiles];
 
-    if (gameState === "IN_PROGRESS") {
+    if (hasBomb) {
+        setGameState('GAME_OVER');
 
-        if (hasBomb) {
-            setGameState('GAME_OVER');
+        return explodeBombs(bombsList, opTilesState);
 
-            return explodeBombs(bombsList, opTilesState);
+    } else {
+        const tileIndex = getTileIndex(tileCoords, opTilesState);
+        opTilesState[tileIndex].checked = true;
+        opTilesState[tileIndex].prompt = prompt;
+
+        if (prompt === 0){
+            return digAdjacentEmptyTiles(
+                opTilesState[tileIndex].coords,
+                opTilesState,
+                bombsList,
+                prompts
+            );
 
         } else {
-            const tileIndex = getTileIndex(tileCoords, opTilesState);
-            opTilesState[tileIndex].checked = true;
-            opTilesState[tileIndex].prompt = prompt;
-
-            if (prompt === 0){
-                return digAdjacentEmptyTiles(
-                    opTilesState[tileIndex].coords,
-                    opTilesState,
-                    bombsList,
-                    prompts
-                );
-
-            } else {
-                return opTilesState;
-
-            }
+            return opTilesState;
 
         }
     }

@@ -1,6 +1,7 @@
 import {digTile} from "./digTile";
 import {flagTile} from "./flagTile";
 import {pushPrompt} from "./pushPrompt";
+import {checkVictory} from "../board/checkVictory";
 
 
 export function pushTile(
@@ -18,7 +19,9 @@ export function pushTile(
     if (gameMode === 'flag') {
         opTilesState = flagTile(
             tile.coords,
-            tiles
+            tiles,
+            bombsList,
+            setGameState
         );
     } else if (!(tile.flagged || tile.checked)) {
         opTilesState = digTile(
@@ -41,5 +44,11 @@ export function pushTile(
         );
     }
 
-    opTilesState && setTilesState(opTilesState);
+    if (opTilesState) {
+        if (checkVictory(tiles, bombsList)) {
+            setGameState("WIN");
+            console.log("WIN");
+        }
+        setTilesState(opTilesState);
+    }
 }

@@ -1,4 +1,4 @@
-import {getTileIndex} from "../../helpers/tileHelpers/getTileIndex";
+import {getTileIndex} from "../../helpers/tileHelpers";
 
 export function explodeBombs(bombList, tiles) {
     const opTilesState = [...tiles];

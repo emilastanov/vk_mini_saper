@@ -3,7 +3,7 @@ import { Panel, PanelHeader, PanelHeaderBack } from '@vkontakte/vkui';
 
 import {numberOfTilesMap, switcherSize} from "../static/texts/boardData";
 import {createTiles} from "../helpers/tileHelpers";
-import Switcher from "../components/Swither";
+import Switcher from "../components/Switcher";
 import Board from "../components/Board";
 
 import panelStyle from '../styles/panelStyle.css';

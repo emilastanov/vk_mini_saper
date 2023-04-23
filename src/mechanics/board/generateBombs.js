@@ -1,4 +1,4 @@
-import {sumTwoDimensionalArray} from "../../helpers/commonHelpers/sumTwoDimensionalArray";
+import {sumTwoDimensionalArray} from "../../helpers/commonHelpers/";
 
 export function generateBombs(startingPoint, numberOfBombs, boardSize) {
     const bombsList =

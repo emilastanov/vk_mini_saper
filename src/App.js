@@ -39,7 +39,7 @@ const App = () => {
 								<Home id="home" go={go} />
 								<About id="about" go={go} />
 								<Rules id="rules" go={go} />
-								<Game id="game" go={go} deviceWidth={deviceWidth} numberOfBombs={10} size='l'/>
+								<Game id="game" go={go} deviceWidth={deviceWidth} numberOfBombs={2} size='s'/>
 								<Settings id="settings" go={go}/>
 							</View>
 						</SplitCol>

@@ -49,6 +49,10 @@ const Board = ({
             setPrompts(_prompts);
         }
 
+        if (gameState !== 'IN_PROGRESS') {
+            return;
+        }
+
         pushTileMechanic(
             _bombList,
             gameMode,

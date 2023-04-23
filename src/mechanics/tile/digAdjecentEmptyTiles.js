@@ -1,5 +1,5 @@
-import {getAdjacentCoords} from "../../helpers/boardHelpers/getAdjacentCoords";
-import {getTileIndex} from "../../helpers/tileHelpers/getTileIndex";
+import {getAdjacentCoords} from "../../helpers/boardHelpers";
+import {getTileIndex} from "../../helpers/tileHelpers";
 
 export function digAdjacentEmptyTiles(startedTileCoords, tiles, bombsList, prompts) {
 
