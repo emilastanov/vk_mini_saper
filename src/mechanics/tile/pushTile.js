@@ -47,7 +47,6 @@ export function pushTile(
     if (opTilesState) {
         if (checkVictory(tiles, bombsList)) {
             setGameState("WIN");
-            console.log("WIN");
         }
         setTilesState(opTilesState);
     }

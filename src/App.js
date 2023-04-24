@@ -8,11 +8,12 @@ import About from "./panels/About";
 import Rules from "./panels/Rules";
 import Game from "./panels/Game";
 import Settings from "./panels/Settings";
+import Popup from "./components/Popup";
 
 const App = () => {
 	const [activePanel, setActivePanel] = useState('home');
 	const [fetchedUser, setUser] = useState(null);
-	const [popout, setPopout] = useState(null);
+	const [popup, showPopup] = useState(false);
 	const [deviceWidth, setDeviceWidth] = useState(null);
 
 	useEffect(() => {
@@ -33,13 +34,20 @@ const App = () => {
 		<ConfigProvider appearance="light">
 			<AdaptivityProvider>
 				<AppRoot>
-					<SplitLayout popout={popout}>
+					<SplitLayout popout={popup}>
 						<SplitCol>
 							<View activePanel={activePanel}>
 								<Home id="home" go={go} />
 								<About id="about" go={go} />
 								<Rules id="rules" go={go} />
-								<Game id="game" go={go} deviceWidth={deviceWidth} numberOfBombs={2} size='s'/>
+								<Game
+									id="game"
+									go={go}
+									deviceWidth={deviceWidth}
+									numberOfBombs={2}
+									size='s'
+									showPopup={showPopup}
+								/>
 								<Settings id="settings" go={go}/>
 							</View>
 						</SplitCol>
