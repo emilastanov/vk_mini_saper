@@ -7,7 +7,7 @@ import {Bomb} from "../static/icons/bomb";
 import boardStyle from '../styles/boardStyle.css';
 
 
-const Tile = ({size, state, onClick}) => (
+export const Tile = ({size, state, onClick}) => (
 
     <div
         style={{width: size, height: size, fontSize: size*0.5, color: getTileTextColor(state.prompt)}}
@@ -19,5 +19,3 @@ const Tile = ({size, state, onClick}) => (
         {state.prompt === 0? '' : state.prompt}
     </div>
 );
-
-export default Tile;

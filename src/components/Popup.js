@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React from 'react';
 
 import {size, loseTitle, loseParagraph, winTitle, winParagraph} from "../static/texts/popupsData"
 import {ExplodedBomb} from "../static/icons/explodedBomb";
@@ -7,7 +7,7 @@ import {PatchedBomb} from "../static/icons/patchedBomb";
 import itemsStyle from '../styles/itemsStyle.css';
 
 
-const Popup = ({changeState, gameState, go, clearBoard}) => {
+export const Popup = ({changeState, gameState, go, clearBoard}) => {
     const tryAgain = () => {
         changeState(null);
         clearBoard();
@@ -50,5 +50,3 @@ const Popup = ({changeState, gameState, go, clearBoard}) => {
         </div>
     </div>
 };
-
-export default Popup;

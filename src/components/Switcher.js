@@ -5,7 +5,7 @@ import {SwitcherFlag} from "../static/icons/switcherFlag";
 import itemsStyle from '../styles/itemsStyle.css';
 
 
-const Switcher = ({state, setState, size}) => {
+export const Switcher = ({state, setState, size}) => {
 
     const changeState = () => {
         setState(
@@ -20,5 +20,3 @@ const Switcher = ({state, setState, size}) => {
         }
     </div>
 };
-
-export default Switcher;

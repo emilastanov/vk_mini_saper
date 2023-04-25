@@ -3,13 +3,12 @@ import React, {useEffect, useState} from "react";
 import {generateBombs, generatePrompts} from "../mechanics/board";
 import {calculateBoardConstants} from "../helpers/boardHelpers";
 import {pushTile as pushTileMechanic} from "../mechanics/tile";
-import Popup from "./Popup";
-import Tile from "./Tile";
+import {Popup, Tile} from "./";
 
 import boardStyle from '../styles/boardStyle.css';
 
 
-const Board = ({
+export const Board = ({
    numberOfBombs,
    setTilesState,
    setBombsList,
@@ -97,5 +96,3 @@ const Board = ({
         ))}
     </div>
 };
-
-export default Board;
