@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 
 import {size, loseTitle, loseParagraph, winTitle, winParagraph} from "../static/texts/popupsData"
 import {ExplodedBomb} from "../static/icons/explodedBomb";
@@ -8,6 +8,8 @@ import itemsStyle from '../styles/itemsStyle.css';
 
 
 export const Popup = ({changeState, gameState, go, clearBoard}) => {
+    const [isShowed, setIsShowed] = useState(true);
+
     const tryAgain = () => {
         changeState(null);
         clearBoard();
@@ -18,8 +20,12 @@ export const Popup = ({changeState, gameState, go, clearBoard}) => {
         go(e);
     }
 
-    return <div className="popupWrapper">
-        <div className="popup">
+    return <div className="popupWrapper" onClick={()=>{!isShowed && setIsShowed(true)}}>
+        {isShowed && <div className="popup">
+            <div
+                className={`hideButton ${gameState === "GAME_OVER" ? "red" : "green"}`}
+                onClick={()=>{setIsShowed(false)}}
+            >скрыть</div>
             <div className={`icon ${gameState === "GAME_OVER" ? "red" : "green"}`}>
                 {(gameState === 'GAME_OVER') && <div className="center"><ExplodedBomb size={size} /></div>}
                 {(gameState === 'WIN') && <div className="center"><PatchedBomb size={size} /></div>}
@@ -47,6 +53,6 @@ export const Popup = ({changeState, gameState, go, clearBoard}) => {
                     Заново
                 </div>
             </div>
-        </div>
+        </div>}
     </div>
 };

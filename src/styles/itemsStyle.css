@@ -40,6 +40,20 @@
     border: 1px solid #7d7d7d;
 }
 
+.popupWrapper > .popup > .hideButton {
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    right: 1rem;
+    border-radius: 5px;
+    text-align: center;
+    color: white;
+    font-size: .9rem;
+    width: 4rem;
+    height: 1.2rem;
+}
+
 .popupWrapper > .popup > .icon {
     position: relative;
     top: -5rem;
@@ -50,11 +64,21 @@
     border: 10px solid white;
 }
 
-.popupWrapper > .popup > .icon.red, .popupWrapper > .popup > .button_container > .button.red  {
+.popupWrapper > .popup > .hideButton.red {
+    color: #f57f7f;
+}
+
+.popupWrapper > .popup > .icon.red,
+.popupWrapper > .popup > .button_container > .button.red {
     background: #f57f7f;
 }
 
-.popupWrapper > .popup > .icon.green, .popupWrapper > .popup > .button_container > .button.green {
+.popupWrapper > .popup > .hideButton.green {
+    color: #9cceaa;
+}
+
+.popupWrapper > .popup > .icon.green,
+.popupWrapper > .popup > .button_container > .button.green {
     background: #9cceaa;
 }
 
