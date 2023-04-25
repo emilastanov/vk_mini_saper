@@ -103,9 +103,10 @@
     width: 7rem;
     height: 2.7rem;
     border-radius: 10px;
+    font-family: monospace;
     border: 2.5px solid #e3e3e3;
     background: #efefef;
-    color: black;
+    color: #333333;
     box-sizing: border-box;
 }
 

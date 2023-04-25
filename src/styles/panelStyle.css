@@ -20,6 +20,10 @@
     font-size: 40px;
 }
 
+.container > .version {
+    margin: 0;
+}
+
 .button_container > .button {
     flex-grow: 0;
 }

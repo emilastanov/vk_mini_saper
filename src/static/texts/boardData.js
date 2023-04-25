@@ -5,6 +5,12 @@ export const numberOfTilesMap = {
     's': 6
 };
 
+export const numberOfBombs = {
+    'l': 30,
+    'm': 15,
+    's': 5
+};
+
 export const sizeOfTileMap = {
     'l': 34.2,
     'm': 43.5,
@@ -14,6 +20,3 @@ export const sizeOfTileMap = {
 export const switcherSize = 64;
 
 export const tilesGap = 3;
-
-
-
