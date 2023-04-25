@@ -11,7 +11,7 @@ export const sizeOfTileMap = {
     's': 59
 };
 
-export const switcherSize = 48;
+export const switcherSize = 64;
 
 export const tilesGap = 3;
 

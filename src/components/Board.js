@@ -15,6 +15,7 @@ const Board = ({
    setBombsList,
    setGameState,
    deviceWidth,
+   clearTiles,
    setPrompts,
    tilesState,
    gameState,
@@ -22,7 +23,8 @@ const Board = ({
    bombsList,
    gameMode,
    prompts,
-   size
+   size,
+   go
 }) => {
 
     const [isFirstClick, setFirstClickState] = useState(true);
@@ -34,20 +36,13 @@ const Board = ({
         numberOfColumns
     } = calculateBoardConstants(size, deviceWidth);
 
-    useEffect(()=>{
-        if (gameState === 'WIN') {
-            showPopup(<Popup
-                changeState={showPopup}
-                text={'WIN'}
-            />);
-        } else if (gameState === 'GAME_OVER') {
-            showPopup(<Popup
-                changeState={showPopup}
-                text={'LOSE'}
-            />);
-        }
-    }, [gameState])
-
+    const clearBoard = () => {
+        setFirstClickState(true);
+        setGameState('IN_PROGRESS');
+        setBombsList(null);
+        setPrompts(null);
+        clearTiles();
+    }
 
     const pushTile = (tile) => {
 
@@ -79,6 +74,17 @@ const Board = ({
             showPopup
         );
     }
+
+    useEffect(()=>{
+        if (gameState !== 'IN_PROGRESS') {
+            showPopup(<Popup
+                changeState={showPopup}
+                gameState={gameState}
+                clearBoard={clearBoard}
+                go={go}
+            />);
+        }
+    }, [gameState])
 
 
     return <div className="board" style={{gridTemplateColumns, gap}}>

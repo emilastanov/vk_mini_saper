@@ -3,22 +3,97 @@
     margin: 0 auto;
 }
 
+.center {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+}
+
 .popupWrapper {
+    position: fixed;
+    display: flex;
     z-index: 10;
     width: 100%;
     height: 100%;
-    background: black;
+    background: rgba(0, 0, 0, 0.5);
 }
 
-.popupWrapper .popup {
-    position: absolute;
+.popupWrapper > .popup {
+    position: fixed;
     top: 0;
     bottom: 0;
     left: 0;
     right: 0;
     margin: auto;
+    padding: 16px;
+
+    display: block;
     z-index: 11;
-    width: 100px;
-    height: 50px;
+    width: 70%;
+    height: 20rem;
     background: white;
+    box-sizing: border-box;
+
+    border-radius: 10px;
+    border: 1px solid #7d7d7d;
 }
+
+.popupWrapper > .popup > .icon {
+    position: relative;
+    top: -5rem;
+    margin: 16px auto;
+    width: 5rem;
+    height: 5rem;
+    border-radius: 50%;
+    border: 10px solid white;
+}
+
+.popupWrapper > .popup > .icon.red, .popupWrapper > .popup > .button_container > .button.red  {
+    background: #f57f7f;
+}
+
+.popupWrapper > .popup > .icon.green, .popupWrapper > .popup > .button_container > .button.green {
+    background: #9cceaa;
+}
+
+.popupWrapper > .popup > .title {
+    position: relative;
+    top: -3.5em;
+    margin: 0;
+    text-align: center;
+    font-weight: normal;
+    color: #383838;
+}
+
+.popupWrapper > .popup > .paragraph {
+    position: relative;
+    top: -4em;
+    color: #505050;
+    text-align: center;
+    padding: 0 16px;
+    height: 5rem;
+}
+
+.popupWrapper > .popup > .button_container {
+    position: relative;
+    top: -2rem;
+    height: 3rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+}
+
+.popupWrapper > .popup > .button_container > .button {
+    height: 3rem;
+    width: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 5px;
+    color: white;
+}
+
+

@@ -1,12 +1,52 @@
 import React, {useState} from 'react';
 
+import {size, loseTitle, loseParagraph, winTitle, winParagraph} from "../static/texts/popupsData"
+import {ExplodedBomb} from "../static/icons/explodedBomb";
+import {PatchedBomb} from "../static/icons/patchedBomb";
+
 import itemsStyle from '../styles/itemsStyle.css';
 
 
-const Popup = ({changeState, text}) => {
+const Popup = ({changeState, gameState, go, clearBoard}) => {
+    const tryAgain = () => {
+        changeState(null);
+        clearBoard();
+    }
+
+    const goHome = (e) => {
+        changeState(null);
+        go(e);
+    }
+
     return <div className="popupWrapper">
-        <div className="popup" onClick={()=>{changeState(null)}}>
-            <h1>{text}</h1>
+        <div className="popup">
+            <div className={`icon ${gameState === "GAME_OVER" ? "red" : "green"}`}>
+                {(gameState === 'GAME_OVER') && <div className="center"><ExplodedBomb size={size} /></div>}
+                {(gameState === 'WIN') && <div className="center"><PatchedBomb size={size} /></div>}
+            </div>
+            <h2 className="title">
+                {(gameState === 'GAME_OVER') && loseTitle}
+                {(gameState === 'WIN') && winTitle}
+            </h2>
+            <p className="paragraph">
+                {(gameState === 'GAME_OVER') && loseParagraph}
+                {(gameState === 'WIN') && winParagraph}
+            </p>
+            <div className="button_container">
+                <div
+                    className={`button ${gameState === "GAME_OVER" ? "red" : "green"}`}
+                    onClick={goHome}
+                    data-to="home"
+                >
+                    На главную
+                </div>
+                <div
+                    className={`button ${gameState === "GAME_OVER" ? "red" : "green"}`}
+                    onClick={tryAgain}
+                >
+                    Заново
+                </div>
+            </div>
         </div>
     </div>
 };

@@ -25,21 +25,16 @@
 }
 
 .button_container > .button.green {
-    background-color: rgb(90, 199, 99);
-    color: white;
-}
-
-.button_container > .button.green {
-    background-color: rgb(90, 199, 99);
+    background-color: #9cceaa;
     color: white;
 }
 
 .button_container > .button.blue {
-    background-color: rgb(47, 176, 255);
+    background-color: #57a1cf;
     color: white;
 }
 
 .button_container > .button.violet {
-    background-color: rgb(149, 59, 196);
+    background-color: #9b61b9;
     color: white;
 }

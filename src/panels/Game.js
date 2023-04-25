@@ -23,6 +23,10 @@ const Game = ({ id, go, deviceWidth, size, numberOfBombs, showPopup }) => {
         createTiles(boardWidth, boardHeight)
     );
 
+    const clearTiles = () => {
+        setTilesState(createTiles(boardWidth, boardHeight));
+    };
+
     return <Panel id={id}>
         <PanelHeader before={<PanelHeaderBack onClick={go} data-to='home'/>}>
             Сапер
@@ -33,6 +37,7 @@ const Game = ({ id, go, deviceWidth, size, numberOfBombs, showPopup }) => {
             setBombsList={setBombsList}
             setGameState={setGameState}
             deviceWidth={deviceWidth}
+            clearTiles={clearTiles}
             setPrompts={setPrompts}
             tilesState={tilesState}
             gameState={gameState}
@@ -41,6 +46,7 @@ const Game = ({ id, go, deviceWidth, size, numberOfBombs, showPopup }) => {
             gameMode={gameMode}
             prompts={prompts}
             size={size}
+            go={go}
         />
         <Switcher state={gameMode} setState={setGameMode} size={switcherSize}/>
     </Panel>
