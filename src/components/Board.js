@@ -75,11 +75,11 @@ export const Board = ({
     }
 
     useEffect(()=>{
-        if (gameState !== 'IN_PROGRESS') {
+        if ( ["GAME_OVER", "WIN"].includes(gameState) ) {
             showPopup(<Popup
                 changeState={showPopup}
                 gameState={gameState}
-                clearBoard={clearBoard}
+                action={clearBoard}
                 go={go}
             />);
         }

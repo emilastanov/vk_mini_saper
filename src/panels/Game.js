@@ -2,7 +2,7 @@ import React, {useEffect, useReducer, useState} from 'react';
 import { Panel, PanelHeader, PanelHeaderBack } from '@vkontakte/vkui';
 
 import {numberOfTilesMap, switcherSize} from "../static/texts/boardData";
-import {Board, Switcher, LabelGroup, Label, Stopwatch} from "../components";
+import {Board, Switcher, LabelGroup, Label, Stopwatch, Popup} from "../components";
 import {createTiles} from "../helpers/tileHelpers";
 
 import panelStyle from '../styles/panelStyle.css';
@@ -28,17 +28,37 @@ const Game = ({ id, go, deviceWidth, size, numberOfBombs, showPopup }) => {
         setStopwatchValue(0);
     };
 
-    const calculateCountOfFlaggedTiles = () => {
-        return tilesState.reduce((flaggedTiles, tile)=>(flaggedTiles + (tile.flagged ? 1 : 0)), 0)
+    const continueGame = () => {
+        setGameState('IN_PROGRESS');
+    }
+
+    const handleGoBack = (e) => {
+        if (gameState === 'IN_PROGRESS') {
+            setGameState("PAUSE");
+            console.log('asd')
+            showPopup(
+                <Popup
+                    changeState={showPopup}
+                    gameState={"PAUSE"}
+                    action={continueGame}
+                    go={go}
+                />
+            );
+        } else {
+            go(e);
+        }
     };
 
-
     useEffect(()=>{
+        const calculateCountOfFlaggedTiles = () => {
+            return tilesState.reduce((flaggedTiles, tile)=>(flaggedTiles + (tile.flagged ? 1 : 0)), 0)
+        };
+
         setCountOfFlaggedTiles(calculateCountOfFlaggedTiles());
     }, [tilesState]);
 
     return <Panel id={id}>
-        <PanelHeader before={<PanelHeaderBack onClick={go} data-to="home" />}>
+        <PanelHeader before={<PanelHeaderBack onClick={handleGoBack} data-to="home" />}>
             Сапер
         </PanelHeader>
         <LabelGroup align="horizontal" style={{marginTop: 25}}>

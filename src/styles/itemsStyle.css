@@ -82,6 +82,15 @@
     background: #9cceaa;
 }
 
+.popupWrapper > .popup > .hideButton.yellow {
+    color: #e6b75c;
+}
+
+.popupWrapper > .popup > .icon.yellow,
+.popupWrapper > .popup > .button_container > .button.yellow {
+    background: #e6b75c;
+}
+
 .popupWrapper > .popup > .title {
     position: relative;
     top: -3.5em;

@@ -1,3 +1,4 @@
+export {PopupContent} from './PopupContent';
 export {LabelGroup} from './LabelGroup';
 export {Stopwatch} from './Stopwatch';
 export {Switcher} from './Switcher';
