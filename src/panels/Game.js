@@ -3,10 +3,10 @@ import { Panel, PanelHeader, PanelHeaderBack } from '@vkontakte/vkui';
 
 import {numberOfTilesMap, switcherSize} from "../static/texts/boardData";
 import {Board, Switcher, LabelGroup, Label, Stopwatch, Popup} from "../components";
+import {preloadAds, showBannerAds} from "../helpers/boardHelpers";
 import {createTiles} from "../helpers/tileHelpers";
 
 import panelStyle from '../styles/panelStyle.css';
-import {preloadAds, showBannerAds} from "../helpers/boardHelpers";
 
 
 const Game = ({ id, go, deviceWidth, size, numberOfBombs, showPopup, bridge }) => {
@@ -63,7 +63,8 @@ const Game = ({ id, go, deviceWidth, size, numberOfBombs, showPopup, bridge }) =
                 console.log({ads: "preloadClip", e})
             });
 
-            showBannerAds(bridge).catch((e)=>{
+            showBannerAds(bridge)
+                .catch((e)=>{
                 console.log({ads: "showBanner", e})
             });
         };
