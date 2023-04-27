@@ -17,7 +17,7 @@ export const pauseTitle = "Вы уверены?";
 
 export const winParagraph = "Вы безошибочно смогли отыскать все бомбы, виртуозно шагая между ними)";
 
-export const pauseParagraph = "Если вы выйдете на главный экран текущий, прогресс игры будет потерен.";
+export const pauseParagraph = "Если вы выйдете на главный экран, текущий прогресс игры будет потерен.";
 
 export const popupContent = {
     PAUSE: {

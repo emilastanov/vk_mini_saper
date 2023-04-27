@@ -1,11 +1,12 @@
 import React, {useEffect, useState} from "react";
 
 import {generateBombs, generatePrompts} from "../mechanics/board";
-import {calculateBoardConstants} from "../helpers/boardHelpers";
+import {calculateBoardConstants, showAds} from "../helpers/boardHelpers";
 import {pushTile as pushTileMechanic} from "../mechanics/tile";
 import {Popup, Tile} from "./";
 
 import boardStyle from '../styles/boardStyle.css';
+import bridge from "@vkontakte/vk-bridge";
 
 
 export const Board = ({
@@ -22,6 +23,7 @@ export const Board = ({
    bombsList,
    gameMode,
    prompts,
+   bridge,
    size,
    go
 }) => {
@@ -76,6 +78,11 @@ export const Board = ({
 
     useEffect(()=>{
         if ( ["GAME_OVER", "WIN"].includes(gameState) ) {
+            if (gameState === "GAME_OVER") {
+                showAds(bridge).catch((e)=>{
+                    console.log({ads: "showClip", e})
+                });
+            }
             showPopup(<Popup
                 changeState={showPopup}
                 gameState={gameState}

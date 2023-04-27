@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from 'react';
+
 import { View, AdaptivityProvider, AppRoot, ConfigProvider, SplitLayout, SplitCol } from '@vkontakte/vkui';
+import bridge from '@vkontakte/vk-bridge';
 import '@vkontakte/vkui/dist/vkui.css';
 
 import Home from './panels/Home';
@@ -38,6 +40,7 @@ const App = () => {
 									numberOfBombs={numberOfBombs[level]}
 									deviceWidth={deviceWidth}
 									showPopup={showPopup}
+									bridge={bridge}
 									size={level}
 									id="game"
 									go={go}

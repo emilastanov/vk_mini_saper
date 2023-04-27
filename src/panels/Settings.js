@@ -15,7 +15,7 @@ const Settings = ({ id, go, level, changeLevel }) => {
 
     return <Panel id={id}>
         <Group>
-            <Div className="container" style={{display: 'block'}}>
+            <Div className="container">
                 <h1 className="title">{title}</h1>
                 <FormLayout>
                     <FormItem top="Сложность игры" onChange={setLevel}>

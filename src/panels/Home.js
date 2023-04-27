@@ -35,7 +35,9 @@ const Home = ({ id, go }) => (
 						</Button>
 					))}
 				</ButtonGroup>
-				<PatchedBomb size={iconSize}/>
+				<div className="icon">
+					<PatchedBomb size={iconSize}/>
+				</div>
 			</Div>
 		</Group>
 	</Panel>
