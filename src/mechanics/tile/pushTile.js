@@ -1,7 +1,7 @@
-import {digTile} from "./digTile";
-import {flagTile} from "./flagTile";
 import {pushPrompt} from "./pushPrompt";
-import {checkVictory} from "../board/checkVictory";
+import {checkVictory} from "../board";
+import {flagTile} from "./flagTile";
+import {digTile} from "./digTile";
 
 
 export function pushTile(
