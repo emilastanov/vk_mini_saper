@@ -1,59 +1,35 @@
 [<img width="134" src="https://vk.com/images/apps/mini_apps/vk_mini_apps_logo.svg">](https://vk.com/services)
 
-# Create VK Mini App [![npm][npm]][npm-url] [![deps][deps]][deps-url]
+## Сапер
 
-## How to use
+<img alt="Сапер" height="128" src="saper.png" width="128"/>
 
-### With NPX
+Добро пожаловать в игру "Сапер"! Это классическая игра, в которой ваша задача заключается в том, чтобы разминировать поле, не попав на мину. Будьте осторожны и используйте свою логику, чтобы выиграть!
 
-```bash
-npx @vkontakte/create-vk-mini-app [app-directory-name] [options]
-```
-[NPX](https://github.com/npm/npx) allows you to always use the **latest** version of the package without a global installation.
+Игру можно сыграть по следующей ссылке: [Играть в Сапер](https://vk.com/apsaper)
 
-### With installing the package globally
-Install the package globally via yarn
-```bash
-yarn global add @vkontakte/create-vk-mini-app
-```
-...or npm
-```bash
-npm install --global @vkontakte/create-vk-mini-app
-```
+## Локальный запуск
+### Установка
 
-and use as follows
+1. Клонируйте репозиторий: `git clone https://github.com/emilastanov/vk_mini_saper.git`
+2. Перейдите в директорию проекта: `cd vk_mini_saper`
+3. Установите зависимости: `npm install`
 
-```bash
-create-vk-mini-app [app-directory-name] [options]
-```
+### Использование
 
-This way is less recommended because you will have to update the package yourself.
+1. Запустите игру: `npm start`
+2. Откройте браузер и перейдите по адресу: `http://localhost:3000`
+3. Начните игру, кликнув на тайлы на игровом поле.
+4. Ваша цель - разминировать все тайлы без подрыва мин.
+5. Используйте подсказки, чтобы определить, где находятся мины.
 
-### Options
-Without `--zeit` and `--surge` options 
+## Вклад
 
-#### `--zeit`
-Vercel (Zeit) deploy
+Если вы хотите внести свой вклад, форкайте проект и присылайте пулреквесты)
 
-Firstly, you have to create Vercel account and connect it with your GitHub profile on [vercel.com](https://vercel.com)
 
-#### `--surge <surge-domain>`
-Surge deploy
+## Контакты
 
-Firstly, you have to create Surge account and Surge-domain on [surge.sh](https://surge.sh)
+Свяжитесь со мной в vk: https://vk.com/apaem
 
-#### `--help`
-Prints the synopsis and a list of options
 
-## How to start work with app
-
-Go to created folder and run:  
-`yarn start` or  `npm start` to start dev server with hot reload on `localhost:10888`.
-
-`yarn run build` or `npm run build` to build production bundle, with tree-shaking, uglify and all this modern fancy stuff.
-
-[npm]: https://img.shields.io/npm/v/@vkontakte/create-vk-mini-app.svg
-[npm-url]: https://npmjs.com/package/@vkontakte/create-vk-mini-app
-
-[deps]: https://img.shields.io/david/vkcom/create-vk-mini-app.svg
-[deps-url]: https://david-dm.org/vkcom/create-vk-mini-app
