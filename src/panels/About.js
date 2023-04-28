@@ -2,6 +2,7 @@ import React from 'react';
 import { Panel, Button, Group, ButtonGroup, Div, Link } from '@vkontakte/vkui';
 
 import {buttons, title, paragraph, link, version} from '../static/texts/aboutPanelData.js';
+
 import panelStyle from '../styles/panelStyle.css';
 
 

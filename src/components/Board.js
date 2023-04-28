@@ -6,7 +6,6 @@ import {pushTile as pushTileMechanic} from "../mechanics/tile";
 import {Popup, Tile} from "./";
 
 import boardStyle from '../styles/boardStyle.css';
-import bridge from "@vkontakte/vk-bridge";
 
 
 export const Board = ({
@@ -70,9 +69,7 @@ export const Board = ({
             tile,
             tilesState,
             setTilesState,
-            setGameState,
-            gameState,
-            showPopup
+            setGameState
         );
     }
 
