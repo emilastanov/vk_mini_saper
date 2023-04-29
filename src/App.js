@@ -10,15 +10,18 @@ import Rules from "./panels/Rules";
 import Game from "./panels/Game";
 import Settings from "./panels/Settings";
 import {numberOfBombs} from "./static/texts/boardData";
+import {getCurrentUserData} from "./helpers/commonHelpers";
 
 
 const App = () => {
 	const [activePanel, setActivePanel] = useState('home');
 	const [deviceWidth, setDeviceWidth] = useState(null);
+	const [currentUser, setCurrentUser] = useState(null);
 	const [level, changeLevel] = useState('m');
 	const [popup, showPopup] = useState(false);
 
 	useEffect(() => {
+		getCurrentUserData(bridge, setCurrentUser);
 		setDeviceWidth(window.innerWidth);
 	}, []);
 
@@ -33,7 +36,7 @@ const App = () => {
 					<SplitLayout popout={popup}>
 						<SplitCol>
 							<View activePanel={activePanel}>
-								<Home id="home" go={go} />
+								<Home id="home" go={go} currentUser={currentUser}/>
 								<About id="about" go={go} />
 								<Rules id="rules" go={go} />
 								<Game
