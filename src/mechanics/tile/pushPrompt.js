@@ -30,7 +30,7 @@ export function pushPrompt(tileCoords, tiles, bombsList, prompts, setGameState) 
         adjacentTilesCoords.forEach(coords => {
             const tileIndex = getTileIndex(coords, opTilesState);
 
-            if (tileIndex > 0) {
+            if (tileIndex >= 0) {
                 const opTile = opTilesState[tileIndex];
 
                 // Если тайл не отмечен и не помечен флагом, выполняем открытие тайла
