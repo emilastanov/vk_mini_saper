@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from "react";
 
-import {generateBombs, generatePrompts} from "../mechanics/board";
 import {calculateBoardConstants, showAds} from "../helpers/boardHelpers";
+import {generateBombs, generatePrompts} from "../mechanics/board";
 import {pushTile as pushTileMechanic} from "../mechanics/tile";
 import {Popup, Tile} from "./";
 
