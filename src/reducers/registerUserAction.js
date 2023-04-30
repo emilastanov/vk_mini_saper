@@ -1,11 +1,12 @@
 import axios from 'axios';
 import {SAPER_METHODS} from "../static/constants/hostList";
 
-export async function registerUserAction({userId, device, action, state}) {
+export async function registerUserAction({userId, device, action, state, userAgent}) {
     return axios.post(SAPER_METHODS.METRICS, {
         userId,
         device,
         action,
-        state
+        state,
+        userAgent
     })
 }

@@ -7,7 +7,8 @@ export const registerCurrentUserClientData = (bridge, userId) => {
             userId: userId,
             device: data,
             action: "application.opened",
-            state: "success"
+            state: "success",
+            userAgent: navigator.userAgent
         }).catch((e)=>{
             console.log(e);
         });
