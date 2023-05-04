@@ -10,6 +10,7 @@ export const registerGameEnd = (device, user, success, userRecord, size) => {
         userAgent: navigator.userAgent
     })
         .then((res)=>{
+            delete device.number;
             success && setUserRecord({
                 userId: user.id,
                 firstName: user.first_name,
