@@ -17,11 +17,13 @@ const App = () => {
 	const [activePanel, setActivePanel] = useState('home');
 	const [deviceWidth, setDeviceWidth] = useState(null);
 	const [currentUser, setCurrentUser] = useState(null);
+	const [userDevice, setUserDevice] = useState(null);
 	const [level, changeLevel] = useState('m');
 	const [popup, showPopup] = useState(false);
 
+
 	useEffect(() => {
-		getCurrentUserData(bridge, setCurrentUser);
+		getCurrentUserData(bridge, setCurrentUser, setUserDevice);
 		setDeviceWidth(window.innerWidth);
 	}, []);
 
@@ -41,8 +43,12 @@ const App = () => {
 								<Rules id="rules" go={go} />
 								<Game
 									numberOfBombs={numberOfBombs[level]}
+									deviceProp={setUserDevice}
 									deviceWidth={deviceWidth}
 									showPopup={showPopup}
+									device={userDevice}
+									userId={currentUser && currentUser.id}
+									user={currentUser}
 									bridge={bridge}
 									size={level}
 									id="game"
