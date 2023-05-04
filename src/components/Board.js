@@ -6,6 +6,7 @@ import {pushTile as pushTileMechanic} from "../mechanics/tile";
 import {Popup, Tile} from "./";
 
 import boardStyle from '../styles/boardStyle.css';
+import {registerGameEnd} from "../helpers/commonHelpers";
 
 
 export const Board = ({
@@ -17,12 +18,15 @@ export const Board = ({
    clearTiles,
    setPrompts,
    tilesState,
+   userRecord,
    gameState,
    showPopup,
    bombsList,
    gameMode,
    prompts,
    bridge,
+   device,
+   user,
    size,
    go
 }) => {
@@ -80,6 +84,7 @@ export const Board = ({
                     console.log({ads: "showClip", e})
                 });
             }
+            registerGameEnd(device, user, gameState === "WIN", userRecord, size);
             showPopup(<Popup
                 changeState={showPopup}
                 gameState={gameState}
