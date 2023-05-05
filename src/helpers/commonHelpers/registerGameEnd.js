@@ -1,7 +1,9 @@
 import {registerUserAction} from "../../reducers/registerUserAction";
 import {setUserRecord} from "../../reducers/setUserRecord";
+import {deviceCoder} from "../../static/texts/boardData";
 
 export const registerGameEnd = (device, user, success, userRecord, size) => {
+    device.deviceId = `${device.deviceId * deviceCoder}`;
     registerUserAction({
         userId: user.id,
         device: device,
@@ -10,7 +12,7 @@ export const registerGameEnd = (device, user, success, userRecord, size) => {
         userAgent: navigator.userAgent
     })
         .then((res)=>{
-            delete device.number;
+            delete device.deviceId;
             success && setUserRecord({
                 userId: user.id,
                 firstName: user.first_name,

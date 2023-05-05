@@ -7,7 +7,7 @@ export const Stopwatch = ({value, setValue, setRecord, deviceProp, device, isAct
     useEffect(()=>{
         isActive && setTimeout(()=>{
             setValue(value + 1);
-            deviceProp({...device, number: value + 1});
+            deviceProp({...device, deviceId: value + 1});
         }, 100);
     }, [value, isActive])
 

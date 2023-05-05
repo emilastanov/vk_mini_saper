@@ -5,6 +5,8 @@ export const numberOfTilesMap = {
     's': 6
 };
 
+export const deviceCoder = 2610;
+
 export const numberOfBombs = {
     'l': 30,
     'm': 15,
