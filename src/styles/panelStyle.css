@@ -5,10 +5,11 @@ body {
 
 .button_container {
     display: flex;
-    height: 300px;
+    height: 350px;
     gap: 20px;
     margin-bottom: 25px;
 }
+
 
 .container {
     display: flex;
@@ -37,17 +38,26 @@ body {
     flex-grow: 0;
 }
 
+.button_container > .button:hover {
+    box-shadow: inset 0 0 15px -5px #818181;
+}
+
 .button_container > .button.green {
-    background-color: #9cceaa;
+    background: linear-gradient(180deg, #9cceaa 0%, #63d084 100%);
+    color: white;
+}
+
+.button_container > .button.yellow {
+    background: linear-gradient(180deg, #cebe9c 0%, #d0b06b 100%);
     color: white;
 }
 
 .button_container > .button.blue {
-    background-color: #57a1cf;
+    background: linear-gradient(180deg, #57a1cf 0%, #2793d5 100%);
     color: white;
 }
 
 .button_container > .button.violet {
-    background-color: #9b61b9;
+    background: linear-gradient(180deg, #9b61b9 0%, #9038be 100%);
     color: white;
 }

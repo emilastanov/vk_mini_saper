@@ -9,6 +9,12 @@ export const buttons = [
         goTo: 'game'
     },
     {
+        text: 'Доска лидеров',
+        className: 'button yellow',
+        mode: 'secondary',
+        goTo: 'leaderboard'
+    },
+    {
         text: 'Параметры игры',
         className: 'button blue',
         mode: 'secondary',

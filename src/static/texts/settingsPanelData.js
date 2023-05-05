@@ -2,17 +2,17 @@ export const title = 'Настройки';
 
 export const radioButtons = [
     {
-        text: 'Легко',
+        text: 'Новичок',
         description: 'Поле 6x6 | 5 бомб',
         value: 's'
     },
     {
-        text: 'Чуть сложнее',
+        text: 'Любитель',
         description: 'Поле 8х8 | 15 бомб',
         value: 'm'
     },
     {
-        text: 'Сложновато',
+        text: 'Мастер',
         description: 'Поле 10х10 | 30 бомб',
         value: 'l'
     }
