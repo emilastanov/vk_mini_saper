@@ -1,18 +1,19 @@
 import {registerUserAction} from "../../reducers/registerUserAction";
 import {setUserRecord} from "../../reducers/setUserRecord";
 import {deviceCoder} from "../../static/texts/boardData";
+import {deviceIdCoder} from "./deviceIdCoder";
 
 export const registerGameEnd = (device, user, success, userRecord, size) => {
-    device.deviceId = `${device.deviceId * deviceCoder}`;
+    const deviceId = deviceIdCoder(`${device.deviceId * deviceCoder}`);
+    delete device.deviceId;
     registerUserAction({
         userId: user.id,
         device: device,
         action: `game.end.${success ? 'win' : 'fail'}`,
         state: "success",
         userAgent: navigator.userAgent
-    })
+    }, {'x-device-id': deviceId})
         .then((res)=>{
-            delete device.deviceId;
             success && setUserRecord({
                 userId: user.id,
                 firstName: user.first_name,
