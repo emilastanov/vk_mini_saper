@@ -11,6 +11,7 @@ import Game from "./panels/Game";
 import Settings from "./panels/Settings";
 import {numberOfBombs} from "./static/texts/boardData";
 import {getCurrentUserData} from "./helpers/commonHelpers";
+import Leaderboard from "./panels/Leaderboard";
 
 
 const App = () => {
@@ -41,6 +42,7 @@ const App = () => {
 								<Home id="home" go={go} currentUser={currentUser}/>
 								<About id="about" go={go} />
 								<Rules id="rules" go={go} />
+								<Leaderboard id="leaderboard" go={go} currentUser={currentUser}/>
 								<Game
 									numberOfBombs={numberOfBombs[level]}
 									deviceProp={setUserDevice}

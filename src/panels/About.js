@@ -21,7 +21,7 @@ const About = ({ id, go }) => (
                 >
                     <p align="justify" dangerouslySetInnerHTML={{ __html: paragraph }} />
                     <p align="center" style={{width: '100%', margin: 0}}>
-                        <Link href={link.href}>{link.text}</Link>
+                        <Link target="_blank" href={link.href}>{link.text}</Link>
                     </p>
                     {buttons.map((
                         {
