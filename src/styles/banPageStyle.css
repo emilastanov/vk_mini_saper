@@ -1,0 +1,27 @@
+
+.wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100vh;
+    background: linear-gradient(180deg, #ffffff, #ffeaea, #ffc8c8);
+}
+
+.wrapper > .title {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    background: darkred;
+    border-radius: 50%;
+    color: white;
+    width: 200px;
+    height: 200px;
+    box-shadow: 0 0 25px -5px black;
+}
+
+.wrapper > p {
+    font-size: 20px;
+}
