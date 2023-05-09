@@ -1,6 +1,7 @@
 import React, {useEffect} from 'react';
 
 import {Label} from "./Label";
+import {makeStopwatchString} from "../helpers/commonHelpers/makeStopwatchString";
 
 export const Stopwatch = ({value, setValue, setRecord, deviceProp, device, isActive=true}) => {
 
@@ -12,12 +13,8 @@ export const Stopwatch = ({value, setValue, setRecord, deviceProp, device, isAct
     }, [value, isActive])
 
     const makeString = () => {
-        setRecord(value);
-        let seconds = Math.floor(value/10);
-        const milliseconds = (value%10).toString();
-        const minutes = Math.floor(seconds/60).toString();
-        seconds = (seconds%60).toString().padStart(2, '0');
-        return [minutes, seconds].join(':') + '.' + milliseconds;
+        setRecord(value + 1);
+        return makeStopwatchString(value);
     };
 
     return <Label text={makeString()}/>
