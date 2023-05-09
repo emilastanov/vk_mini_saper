@@ -1,6 +1,7 @@
 import {Avatar, Cell, Footer, Group, Link} from "@vkontakte/vkui";
 import {recordIsAbsent, userPageLink} from "../static/texts/leaderboardData";
 import React from "react";
+import {makeStopwatchString} from "../helpers/commonHelpers/makeStopwatchString";
 
 export const LeaderboardCurrentUser = ({userPosition, category}) => (
     <Group separator="show">
@@ -11,7 +12,7 @@ export const LeaderboardCurrentUser = ({userPosition, category}) => (
             <Cell
                 subtitle={`${userPosition.pos}е место`}
                 before={<Avatar src={userPosition.user.photo} />}
-                after={userPosition.user.recordTime}
+                after={makeStopwatchString(userPosition.user.recordTime)}
             >
                 {userPosition.user.firstName} {userPosition.user.lastName}
             </Cell>
