@@ -12,6 +12,7 @@ import Settings from "./panels/Settings";
 import {numberOfBombs} from "./static/texts/boardData";
 import {getCurrentUserData} from "./helpers/commonHelpers";
 import Leaderboard from "./panels/Leaderboard";
+import {BanPage} from "./components/BanPage";
 
 
 const App = () => {
@@ -19,12 +20,13 @@ const App = () => {
 	const [deviceWidth, setDeviceWidth] = useState(null);
 	const [currentUser, setCurrentUser] = useState(null);
 	const [userDevice, setUserDevice] = useState(null);
+	const [isBanned, setIsBanned] = useState(null);
 	const [level, changeLevel] = useState('m');
 	const [popup, showPopup] = useState(false);
 
 
 	useEffect(() => {
-		getCurrentUserData(bridge, setCurrentUser, setUserDevice);
+		getCurrentUserData(bridge, setCurrentUser, setUserDevice, setIsBanned);
 		setDeviceWidth(window.innerWidth);
 	}, []);
 
@@ -32,13 +34,15 @@ const App = () => {
 		setActivePanel(e.currentTarget.dataset.to);
 	};
 
+	const banned = isBanned ?? false;
+
 	return (
 		<ConfigProvider appearance="light">
 			<AdaptivityProvider>
 				<AppRoot>
 					<SplitLayout popout={popup}>
 						<SplitCol>
-							<View activePanel={activePanel}>
+							{!banned ? <View activePanel={activePanel}>
 								<Home id="home" go={go} currentUser={currentUser}/>
 								<About id="about" go={go} />
 								<Rules id="rules" go={go} />
@@ -57,7 +61,7 @@ const App = () => {
 									go={go}
 								/>
 								<Settings id="settings" go={go} level={level} changeLevel={changeLevel}/>
-							</View>
+							</View> : <BanPage />}
 						</SplitCol>
 					</SplitLayout>
 				</AppRoot>
