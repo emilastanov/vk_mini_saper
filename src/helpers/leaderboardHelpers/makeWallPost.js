@@ -2,6 +2,7 @@ import {sendWallPost} from "../vkBridgeHelpers";
 import {wallPost, appLink} from "../../static/texts/postsData";
 import {categories} from "../../static/texts/leaderboardData";
 import {makeStopwatchString} from "../commonHelpers/makeStopwatchString";
+import {registerWallPost} from "../commonHelpers/registerWallPost";
 
 export const makeWallPost = (userData) => {
     sendWallPost({
@@ -13,9 +14,11 @@ export const makeWallPost = (userData) => {
         attachments: appLink
     })
         .then((data)=>{
-            console.log(data)
+            userData.post = data;
+            registerWallPost(userData, true);
         })
         .catch((error) => {
-            console.log(error);
+            userData.error = error;
+            registerWallPost(userData, false);
         });
 }
