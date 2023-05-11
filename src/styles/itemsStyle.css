@@ -122,6 +122,7 @@
 .popupWrapper > .popup > .button_container > .button {
     height: 2.7rem;
     width: 50%;
+    font-size: 0.9rem;
     display: flex;
     align-items: center;
     justify-content: center;

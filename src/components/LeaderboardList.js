@@ -1,5 +1,5 @@
 import {Avatar, Cell, Group, Link, Spinner} from "@vkontakte/vkui";
-import {userPageLink, positionStyle} from "../static/texts/leaderboardData";
+import {userPageLink, positionStyle, posSuffix} from "../static/texts/leaderboardData";
 import React from "react";
 import {makeStopwatchString} from "../helpers/commonHelpers/makeStopwatchString";
 
@@ -10,7 +10,7 @@ export const LeaderboardList = ({leaderboard}) => (
             return <Link href={userPageLink.format({id: record.userId})} target="_blank">
                 <Cell
                     key={key}
-                    subtitle={`${key + 1}е место`}
+                    subtitle={posSuffix.format({pos: key + 1})}
                     before={<Avatar style={avatarStyle} src={record.photo}/>}
                     after={makeStopwatchString(record.recordTime)}
                 >

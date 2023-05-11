@@ -34,8 +34,10 @@ export const selectorTitle = "Категория";
 
 export const title = "Лидеры";
 
+export const posSuffix = "{pos}е место";
+
 export const positionStyle = [
-    { boxShadow: "0 0 15px 2px #FFD700" },
-    { boxShadow: "0 0 15px 2px #c0c0c0" },
-    { boxShadow: "0 0 15px 2px #cd7f32" }
+    { boxShadow: "0 0 5px 3px #FFD700" },
+    { boxShadow: "0 0 5px 3px #c0c0c0" },
+    { boxShadow: "0 0 5px 3px #cd7f32" }
 ];
