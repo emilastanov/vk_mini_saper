@@ -13,7 +13,7 @@ import {
     footer,
     title
 } from "../static/texts/leaderboardData";
-import {getLeaderboardByDifficulty} from "../helpers/leaderboardHelpers/getLeaderboardByDifficulty";
+import {getLeaderboardByDifficulty} from "../helpers/leaderboardHelpers";
 import {LeaderboardCategorySelector} from "../components/LeaderboardCategorySelector";
 import {LeaderboardCurrentUser} from "../components/LeaderboardCurrentUser";
 import {LeaderboardList} from "../components/LeaderboardList";
@@ -33,7 +33,10 @@ const Leaderboard = ({ id, go, currentUser }) => {
         </PanelHeader>
         <Div>
             <LeaderboardCategorySelector category={category} setCategory={setCategory}/>
-            <LeaderboardCurrentUser category={category} userPosition={leaderboard?.userPosition}/>
+            <LeaderboardCurrentUser
+                userPosition={leaderboard?.userPosition}
+                category={category}
+            />
             <LeaderboardList leaderboard={leaderboard}/>
             <Footer>{footer.format({records: leaderboard?.count})}</Footer>
         </Div>

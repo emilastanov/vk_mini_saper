@@ -41,3 +41,18 @@ export const positionStyle = [
     { boxShadow: "0 0 5px 3px #c0c0c0" },
     { boxShadow: "0 0 5px 3px #cd7f32" }
 ];
+
+export const share = "(Поделиться)";
+
+export const dateSelectorTitle = "Время";
+
+export const dates = [
+    {
+        label: 'За неделю',
+        value: 'last_week',
+    },
+    {
+        label: 'За все время',
+        value: 'all',
+    }
+]

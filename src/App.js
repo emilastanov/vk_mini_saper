@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 
 import { View, AdaptivityProvider, AppRoot, ConfigProvider, SplitLayout, SplitCol } from '@vkontakte/vkui';
-import bridge from '@vkontakte/vk-bridge';
 import '@vkontakte/vkui/dist/vkui.css';
 
 import Home from './panels/Home';
@@ -26,7 +25,7 @@ const App = () => {
 
 
 	useEffect(() => {
-		getCurrentUserData(bridge, setCurrentUser, setUserDevice, setIsBanned);
+		getCurrentUserData(setCurrentUser, setUserDevice, setIsBanned);
 		setDeviceWidth(window.innerWidth);
 	}, []);
 
@@ -46,7 +45,11 @@ const App = () => {
 								<Home id="home" go={go} currentUser={currentUser}/>
 								<About id="about" go={go} />
 								<Rules id="rules" go={go} />
-								<Leaderboard id="leaderboard" go={go} currentUser={currentUser}/>
+								<Leaderboard
+									currentUser={currentUser}
+									id="leaderboard"
+									go={go}
+								/>
 								<Game
 									numberOfBombs={numberOfBombs[level]}
 									deviceProp={setUserDevice}
@@ -55,7 +58,6 @@ const App = () => {
 									device={userDevice}
 									userId={currentUser && currentUser.id}
 									user={currentUser}
-									bridge={bridge}
 									size={level}
 									id="game"
 									go={go}

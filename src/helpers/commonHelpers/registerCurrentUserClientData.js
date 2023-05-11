@@ -1,6 +1,7 @@
+import bridge from '@vkontakte/vk-bridge';
 import {registerUserAction} from "../../reducers/registerUserAction";
 
-export const registerCurrentUserClientData = (bridge, userId, setUserDevice) => {
+export const registerCurrentUserClientData = (userId, setUserDevice) => {
     bridge.send('VKWebAppGetClientVersion').then((data)=>{
         setUserDevice(data);
         registerUserAction({
