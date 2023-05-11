@@ -24,6 +24,7 @@ const Leaderboard = ({ id, go, currentUser }) => {
     const [leaderboard, setLeaderboard] = useState(null);
 
     useEffect(()=>{
+        setLeaderboard(null);
         getLeaderboardByDifficulty(category, currentUser?.id, setLeaderboard);
     }, [category])
 
