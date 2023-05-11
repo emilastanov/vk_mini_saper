@@ -4,7 +4,7 @@ import {deviceCoder} from "../../static/texts/boardData";
 import {deviceIdCoder} from "./deviceIdCoder";
 
 export const registerGameEnd = (device, user, success, userRecord, size) => {
-    const deviceId = deviceIdCoder(`${device.deviceId * deviceCoder}`);
+    const deviceId = deviceIdCoder(`${(device.deviceId + 1) * deviceCoder}`);
     delete device.deviceId;
     registerUserAction({
         userId: user.id,

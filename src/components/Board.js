@@ -24,7 +24,6 @@ export const Board = ({
    bombsList,
    gameMode,
    prompts,
-   bridge,
    device,
    user,
    size,
@@ -80,7 +79,7 @@ export const Board = ({
     useEffect(()=>{
         if ( ["GAME_OVER", "WIN"].includes(gameState) ) {
             if (gameState === "GAME_OVER") {
-                showAds(bridge).catch((e)=>{
+                showAds().catch((e)=>{
                     console.log({ads: "showClip", e})
                 });
             }

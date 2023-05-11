@@ -10,7 +10,7 @@ import {createTiles} from "../helpers/tileHelpers";
 import panelStyle from '../styles/panelStyle.css';
 
 
-const Game = ({ id, go, deviceWidth, size, numberOfBombs, showPopup, bridge, device, userId, user, deviceProp }) => {
+const Game = ({ id, go, deviceWidth, size, numberOfBombs, showPopup, device, userId, user, deviceProp }) => {
 
     const boardHeight = numberOfTilesMap[size];
     const boardWidth = numberOfTilesMap[size];
@@ -60,13 +60,13 @@ const Game = ({ id, go, deviceWidth, size, numberOfBombs, showPopup, bridge, dev
 
         const handlePreloadAds = () => {
 
-            preloadAds(bridge).then((data)=>{
+            preloadAds().then((data)=>{
                 data.result && setIsAdsLoaded(true);
             }).catch((e)=>{
                 console.log({ads: "preloadClip", e})
             });
 
-            showBannerAds(bridge)
+            showBannerAds()
                 .catch((e)=>{
                 console.log({ads: "showBanner", e})
             });
@@ -107,7 +107,6 @@ const Game = ({ id, go, deviceWidth, size, numberOfBombs, showPopup, bridge, dev
             showPopup={showPopup}
             gameMode={gameMode}
             prompts={prompts}
-            bridge={bridge}
             device={device}
             user={user}
             size={size}

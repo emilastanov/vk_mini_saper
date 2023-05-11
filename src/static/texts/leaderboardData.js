@@ -25,3 +25,21 @@ export const description = {
     m: 'Поле 8х8 | 15 бомб',
     l: 'Поле 10х10 | 30 бомб'
 };
+
+export const footer = "Общее число рекоров {records}";
+
+export const userPageLink = "https://vk.com/id{id}";
+
+export const selectorTitle = "Категория";
+
+export const title = "Лидеры";
+
+export const posSuffix = "{pos}е место";
+
+export const positionStyle = [
+    { boxShadow: "0 0 5px 3px #FFD700" },
+    { boxShadow: "0 0 5px 3px #c0c0c0" },
+    { boxShadow: "0 0 5px 3px #cd7f32" }
+];
+
+export const share = "(Поделиться)";

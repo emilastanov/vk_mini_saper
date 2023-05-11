@@ -35,7 +35,7 @@ const Settings = ({ id, go, level, changeLevel }) => {
                 <ButtonGroup
                     mode="vertical"
                     className="button_container"
-                    style={{marginTop: 50}}
+                    style={{marginTop: 50, height: 'auto'}}
                     stretched
                 >
                     {buttons.map(({
