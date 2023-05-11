@@ -9,7 +9,7 @@ export const Stopwatch = ({value, setValue, setRecord, deviceProp, device, isAct
         isActive && setTimeout(()=>{
             setValue(value + 1);
             deviceProp({...device, deviceId: value + 1});
-        }, 5);
+        }, 8);
     }, [value, isActive])
 
 

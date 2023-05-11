@@ -43,16 +43,3 @@ export const positionStyle = [
 ];
 
 export const share = "(Поделиться)";
-
-export const dateSelectorTitle = "Время";
-
-export const dates = [
-    {
-        label: 'За неделю',
-        value: 'last_week',
-    },
-    {
-        label: 'За все время',
-        value: 'all',
-    }
-]
