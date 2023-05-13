@@ -11,6 +11,7 @@ import {registerGameEnd} from "../helpers/commonHelpers";
 
 export const Board = ({
    setIsActionRegistered,
+   setIsAdsLoaded,
    numberOfBombs,
    setTilesState,
    setBombsList,
@@ -35,16 +36,17 @@ export const Board = ({
     const [clicksList, setClicksList] = useState([]);
 
     const {
-        gap,
         gridTemplateColumns,
+        numberOfColumns,
         sizeOfTiles,
-        numberOfColumns
+        gap
     } = calculateBoardConstants(size, deviceWidth);
 
     const clearBoard = () => {
-        setIsActionRegistered(false);
         setFirstClickState(true);
+        setIsActionRegistered(false);
         setGameState('IN_PROGRESS');
+        setIsAdsLoaded(false);
         setBombsList(null);
         setPrompts(null);
         clearTiles();
