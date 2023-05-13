@@ -92,6 +92,7 @@ export const Board = ({
             }
             registerGameEnd(device, user, gameState === "WIN", userRecord, size, bombsList, clicksList);
             setClicksList([]);
+
             showPopup(<Popup
                 changeState={showPopup}
                 gameState={gameState}

@@ -2,6 +2,7 @@ import {registerUserAction} from "../../reducers/registerUserAction";
 import {setUserRecord} from "../../reducers/setUserRecord";
 import {deviceCoder} from "../../static/texts/boardData";
 import {deviceIdCoder} from "./deviceIdCoder";
+import {checkConstants} from "./checkConstants";
 
 export const registerGameEnd = (device, user, success, userRecord, size, board, clicksList) => {
     const deviceId = deviceIdCoder(`${(device.deviceId + 1) * deviceCoder}`);
@@ -26,7 +27,10 @@ export const registerGameEnd = (device, user, success, userRecord, size, board, 
                 difficulty: size,
                 recordTime: userRecord,
                 device: device
-            }, {"x-api-key": res?.data['x-api-key']}).catch((e)=>{
+            }, {
+                "x-api-key": res?.data['x-api-key'],
+                'x-value': checkConstants(size),
+            }).catch((e)=>{
                 console.log(e)
             });
         })
