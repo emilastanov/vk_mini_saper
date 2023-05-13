@@ -94,6 +94,7 @@ const Game = ({ id, go, deviceWidth, size, numberOfBombs, showPopup, device, use
         </LabelGroup>
         <Board
             setIsActionRegistered={setIsActionRegistered}
+            setIsAdsLoaded={setIsAdsLoaded}
             numberOfBombs={numberOfBombs}
             setTilesState={setTilesState}
             setBombsList={setBombsList}
