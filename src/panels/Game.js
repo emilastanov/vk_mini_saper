@@ -72,8 +72,13 @@ const Game = ({ id, go, deviceWidth, size, numberOfBombs, showPopup, device, use
             });
         };
 
-        !isAdsLoaded && handlePreloadAds();
-        !isActionRegistered && registerGameStart(device, userId, setIsActionRegistered);
+        if (!isAdsLoaded) {
+            handlePreloadAds();
+
+            if (!isActionRegistered)
+                registerGameStart(device, userId, setIsActionRegistered);
+        }
+
         setCountOfFlaggedTiles(calculateCountOfFlaggedTiles());
     }, [tilesState, isAdsLoaded, isActionRegistered]);
 
