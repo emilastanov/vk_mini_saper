@@ -10,6 +10,7 @@ import {registerGameEnd} from "../helpers/commonHelpers";
 
 
 export const Board = ({
+   setIsActionRegistered,
    numberOfBombs,
    setTilesState,
    setBombsList,
@@ -41,6 +42,7 @@ export const Board = ({
     } = calculateBoardConstants(size, deviceWidth);
 
     const clearBoard = () => {
+        setIsActionRegistered(false);
         setFirstClickState(true);
         setGameState('IN_PROGRESS');
         setBombsList(null);

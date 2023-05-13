@@ -77,7 +77,7 @@ const Game = ({ id, go, deviceWidth, size, numberOfBombs, showPopup, device, use
         setCountOfFlaggedTiles(calculateCountOfFlaggedTiles());
     }, [tilesState, isAdsLoaded, isActionRegistered]);
 
-    return <Panel id={id}>
+    return <Panel id={id} style={{position: 'fixed'}}>
         <PanelHeader before={<PanelHeaderBack onClick={handleGoBack} data-to="home" />}>
             Сапер
         </PanelHeader>
@@ -93,6 +93,7 @@ const Game = ({ id, go, deviceWidth, size, numberOfBombs, showPopup, device, use
             />
         </LabelGroup>
         <Board
+            setIsActionRegistered={setIsActionRegistered}
             numberOfBombs={numberOfBombs}
             setTilesState={setTilesState}
             setBombsList={setBombsList}
