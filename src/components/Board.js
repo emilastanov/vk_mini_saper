@@ -31,6 +31,7 @@ export const Board = ({
 }) => {
 
     const [isFirstClick, setFirstClickState] = useState(true);
+    const [clicksList, setClicksList] = useState([]);
 
     const {
         gap,
@@ -51,6 +52,8 @@ export const Board = ({
 
         let _bombList = bombsList;
         let _prompts = prompts;
+
+        setClicksList([...clicksList, {coords: tile.coords, time: userRecord}]);
 
         if (isFirstClick) {
             _bombList = generateBombs(tile.coords, numberOfBombs, numberOfColumns);
@@ -83,7 +86,7 @@ export const Board = ({
                     console.log({ads: "showClip", e})
                 });
             }
-            registerGameEnd(device, user, gameState === "WIN", userRecord, size);
+            registerGameEnd(device, user, gameState === "WIN", userRecord, size, bombsList, clicksList);
             showPopup(<Popup
                 changeState={showPopup}
                 gameState={gameState}
