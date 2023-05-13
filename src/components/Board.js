@@ -57,7 +57,7 @@ export const Board = ({
         let _bombList = bombsList;
         let _prompts = prompts;
 
-        setClicksList([...clicksList, {coords: tile.coords, time: userRecord}]);
+        setClicksList([...clicksList, {coords: tile.coords, time: userRecord, mode: gameMode}]);
 
         if (isFirstClick) {
             _bombList = generateBombs(tile.coords, numberOfBombs, numberOfColumns);
