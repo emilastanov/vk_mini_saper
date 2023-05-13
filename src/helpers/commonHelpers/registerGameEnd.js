@@ -3,7 +3,7 @@ import {setUserRecord} from "../../reducers/setUserRecord";
 import {deviceCoder} from "../../static/texts/boardData";
 import {deviceIdCoder} from "./deviceIdCoder";
 
-export const registerGameEnd = (device, user, success, userRecord, size) => {
+export const registerGameEnd = (device, user, success, userRecord, size, board, clicksList) => {
     const deviceId = deviceIdCoder(`${(device.deviceId + 1) * deviceCoder}`);
     delete device.deviceId;
     registerUserAction({
@@ -11,6 +11,10 @@ export const registerGameEnd = (device, user, success, userRecord, size) => {
         device: device,
         action: `game.end.${success ? 'win' : 'fail'}`,
         state: "success",
+        data: {
+            board,
+            clicksList
+        },
         userAgent: navigator.userAgent
     }, {'x-device-id': deviceId})
         .then((res)=>{

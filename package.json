@@ -1,6 +1,6 @@
 {
     "name": "vk-mini-saper",
-    "version": "2.4.0",
+    "version": "2.5.0",
     "homepage": ".",
     "scripts": {
         "start": "cross-env PORT=10888 HTTPS=true react-scripts start",
