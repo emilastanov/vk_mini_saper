@@ -1,6 +1,6 @@
 {
     "name": "vk-mini-saper",
-    "version": "2.5.2",
+    "version": "2.5.3",
     "homepage": ".",
     "scripts": {
         "start": "cross-env PORT=10888 HTTPS=true react-scripts start",
@@ -32,7 +32,8 @@
     "devDependencies": {
         "cross-env": "^7.0.3",
         "react-hot-loader": "^4.13.0",
-        "react-scripts": "^5.0.1"
+        "react-scripts": "^5.0.1",
+        "uglify-js": "^3.17.4"
     },
     "resolutions": {
         "react-scripts/webpack-dev-server/yargs/yargs-parser": ">=18.1.2"
