@@ -29,7 +29,7 @@ export const registerGameEnd = (device, user, success, userRecord, size, board, 
                 device: device
             }, {
                 "x-api-key": res?.data['x-api-key'],
-                'x-value': checkConstants(size),
+                'x-value': checkConstants(board, size),
             }).catch((e)=>{
                 console.log(e)
             });
