@@ -4,7 +4,7 @@
     "homepage": ".",
     "scripts": {
         "start": "cross-env PORT=10888 HTTPS=true react-scripts start",
-        "build": "GENERATE_SOURCEMAP=false react-scripts build",
+        "build": "GENERATE_SOURCEMAP=false react-scripts build && node wrappeBuild.js",
         "predeploy": "npm run build",
         "deploy": "vk-miniapps-deploy",
         "tunnel": "vk-tunnel --insecure=1 --http-protocol=https --ws-protocol=wss --host=0.0.0.0 --port=10888"

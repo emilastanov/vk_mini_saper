@@ -7,6 +7,7 @@ import {Popup, Tile} from "./";
 
 import boardStyle from '../styles/boardStyle.css';
 import {registerGameEnd} from "../helpers/commonHelpers";
+// import {registerUsersStep} from "../helpers/commonHelpers/registerUsersStep";
 
 
 export const Board = ({
@@ -34,6 +35,7 @@ export const Board = ({
 
     const [isFirstClick, setFirstClickState] = useState(true);
     const [clicksList, setClicksList] = useState([]);
+    const [code, setCode] = useState('');
 
     const {
         gridTemplateColumns,
@@ -57,7 +59,11 @@ export const Board = ({
         let _bombList = bombsList;
         let _prompts = prompts;
 
-        setClicksList([...clicksList, {coords: tile.coords, time: userRecord, mode: gameMode}]);
+        const _clickList = [...clicksList, {coords: tile.coords, time: userRecord, mode: gameMode}];
+
+        setClicksList(_clickList);
+
+        // registerUsersStep(device, user, _bombList, _clickList, setCode, code);
 
         if (isFirstClick) {
             _bombList = generateBombs(tile.coords, numberOfBombs, numberOfColumns);
