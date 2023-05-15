@@ -10,7 +10,7 @@ import {createTiles} from "../helpers/tileHelpers";
 import panelStyle from '../styles/panelStyle.css';
 
 
-const Game = ({ id, go, deviceWidth, size, numberOfBombs, showPopup, device, userId, user, deviceProp }) => {
+const Game = ({ id, go, deviceWidth, size, numberOfBombs, showPopup, device, userId, user, deviceProp, setIsBanned }) => {
 
     const boardHeight = numberOfTilesMap[size];
     const boardWidth = numberOfTilesMap[size];
@@ -76,7 +76,7 @@ const Game = ({ id, go, deviceWidth, size, numberOfBombs, showPopup, device, use
             handlePreloadAds();
 
             if (!isActionRegistered)
-                registerGameStart(device, userId, setIsActionRegistered);
+                registerGameStart(device, userId, setIsActionRegistered, setIsBanned);
         }
 
         setCountOfFlaggedTiles(calculateCountOfFlaggedTiles());

@@ -51,12 +51,13 @@ const App = () => {
 									go={go}
 								/>
 								<Game
+									userId={currentUser && currentUser.id}
 									numberOfBombs={numberOfBombs[level]}
 									deviceProp={setUserDevice}
 									deviceWidth={deviceWidth}
+									setIsBanned={setIsBanned}
 									showPopup={showPopup}
 									device={userDevice}
-									userId={currentUser && currentUser.id}
 									user={currentUser}
 									size={level}
 									id="game"

@@ -12,4 +12,12 @@
 	<body>
 		<div id="root"></div>
 	</body>
+	<script>
+		async function baclksdjb(casc) {
+			const vsdf = new TextEncoder().encode(casc);
+			const cadf = await crypto.subtle.digest('SHA-256', vsdf);
+
+			return Array.from(new Uint8Array(cadf)).map(b => b.toString(16).padStart(2, '0')).join('');
+		}
+	</script>
 </html>
