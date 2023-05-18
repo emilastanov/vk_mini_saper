@@ -66,10 +66,12 @@ const Game = ({ id, go, deviceWidth, size, numberOfBombs, showPopup, device, use
                 console.log({ads: "preloadClip", e})
             });
 
-            showBannerAds()
-                .catch((e)=>{
-                console.log({ads: "showBanner", e})
-            });
+            if (size !== "xl") {
+                showBannerAds()
+                    .catch((e)=>{
+                        console.log({ads: "showBanner", e});
+                    });
+            }
         };
 
         if (!isAdsLoaded) {
