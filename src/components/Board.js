@@ -28,7 +28,7 @@ export const Board = ({
    gameMode,
    prompts,
    device,
-   xCodes,
+   xCode,
    user,
    size,
    go
@@ -96,7 +96,7 @@ export const Board = ({
                     console.log({ads: "showClip", e})
                 });
             }
-            registerGameEnd(device, user, gameState === "WIN", userRecord, size, bombsList, clicksList, xCodes);
+            registerGameEnd(device, user, gameState === "WIN", userRecord, size, bombsList, clicksList, xCode);
             setClicksList([]);
 
             showPopup(<Popup

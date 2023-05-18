@@ -4,7 +4,7 @@ import {deviceCoder} from "../../static/texts/boardData";
 import {deviceIdCoder} from "./deviceIdCoder";
 import {checkConstants} from "./checkConstants";
 
-export const registerGameEnd = (device, user, success, userRecord, size, board, clicksList, xCodes) => {
+export const registerGameEnd = (device, user, success, userRecord, size, board, clicksList, xCode) => {
     const deviceId = deviceIdCoder(`${device.deviceId * deviceCoder}`);
 
     delete device.deviceId;
@@ -20,10 +20,10 @@ export const registerGameEnd = (device, user, success, userRecord, size, board, 
         userAgent: navigator.userAgent
     }, {'x-device-id': deviceId})
         .then((res)=>{
-            const xCode = res.data?.code;
+            const _xCode = res.data?.code;
             let xCodesStr = '';
-            if (xCode) {
-                xCodesStr = [...xCodes, xCode].join(',');
+            if (_xCode) {
+                xCodesStr = [xCode, _xCode].join(',');
             }
 
             success && setUserRecord({
