@@ -7,6 +7,7 @@ import {Popup, Tile} from "./";
 
 import boardStyle from '../styles/boardStyle.css';
 import {registerGameEnd} from "../helpers/commonHelpers";
+import {handleLongPress} from "../helpers/boardHelpers/handleLongPress";
 // import {registerUsersStep} from "../helpers/commonHelpers/registerUsersStep";
 
 
@@ -54,7 +55,7 @@ export const Board = ({
         clearTiles();
     }
 
-    const pushTile = (tile) => {
+    const pushTile = (tile, mode) => {
 
         let _bombList = bombsList;
         let _prompts = prompts;
@@ -80,7 +81,7 @@ export const Board = ({
 
         pushTileMechanic(
             _bombList,
-            gameMode,
+            mode,
             _prompts,
             tile,
             tilesState,
@@ -112,7 +113,8 @@ export const Board = ({
     return <div className="board" style={{gridTemplateColumns, gap}}>
         {tilesState.map(tile=>(
             <Tile
-                onClick={()=>pushTile(tile)}
+                onClick={()=>pushTile(tile, gameMode)}
+                {...handleLongPress(()=>pushTile(tile, "flag"))}
                 size={sizeOfTiles}
                 state={tile}
             />

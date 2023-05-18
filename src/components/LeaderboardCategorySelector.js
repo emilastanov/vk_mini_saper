@@ -1,5 +1,5 @@
 import {categories, description, selectorTitle} from "../static/texts/leaderboardData";
-import {FormItem, SegmentedControl, CustomSelect, CustomSelectOption} from "@vkontakte/vkui";
+import {FormItem, CustomSelect, CustomSelectOption} from "@vkontakte/vkui";
 import React from "react";
 
 export const LeaderboardCategorySelector = ({category, setCategory})=> (
