@@ -28,6 +28,7 @@ export const Board = ({
    gameMode,
    prompts,
    device,
+   xCode,
    user,
    size,
    go
@@ -35,7 +36,6 @@ export const Board = ({
 
     const [isFirstClick, setFirstClickState] = useState(true);
     const [clicksList, setClicksList] = useState([]);
-    const [code, setCode] = useState('');
 
     const {
         gridTemplateColumns,
@@ -96,7 +96,7 @@ export const Board = ({
                     console.log({ads: "showClip", e})
                 });
             }
-            registerGameEnd(device, user, gameState === "WIN", userRecord, size, bombsList, clicksList);
+            registerGameEnd(device, user, gameState === "WIN", userRecord, size, bombsList, clicksList, xCode);
             setClicksList([]);
 
             showPopup(<Popup

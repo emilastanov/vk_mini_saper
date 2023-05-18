@@ -4,9 +4,8 @@ import {deviceCoder} from "../../static/texts/boardData";
 import {deviceIdCoder} from "./deviceIdCoder";
 import {checkConstants} from "./checkConstants";
 
-export const registerGameEnd = (device, user, success, userRecord, size, board, clicksList) => {
+export const registerGameEnd = (device, user, success, userRecord, size, board, clicksList, xCode) => {
     const deviceId = deviceIdCoder(`${device.deviceId * deviceCoder}`);
-    console.log({a: device.deviceId, b: userRecord})
 
     delete device.deviceId;
     registerUserAction({
@@ -21,6 +20,12 @@ export const registerGameEnd = (device, user, success, userRecord, size, board, 
         userAgent: navigator.userAgent
     }, {'x-device-id': deviceId})
         .then((res)=>{
+            const _xCode = res.data?.code;
+            let xCodesStr = '';
+            if (_xCode) {
+                xCodesStr = [xCode, _xCode].join(',');
+            }
+
             success && setUserRecord({
                 userId: user.id,
                 firstName: user.first_name,
@@ -31,7 +36,8 @@ export const registerGameEnd = (device, user, success, userRecord, size, board, 
                 device: device
             }, {
                 "x-api-key": res?.data['x-api-key'],
-                'x-value': checkConstants(board, size),
+                "x-value": checkConstants(board, size),
+                "x-code": xCodesStr
             }).catch((e)=>{
                 console.log(e)
             });
