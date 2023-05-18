@@ -6,7 +6,8 @@
  * @returns {array} - Матрица, представляющая подсказки для каждого тайла на игровом поле.
  */
 export function generatePrompts(bombsList, boardSize) {
-    const prompts = Array.from({ length: boardSize }, () => Array(boardSize).fill(0));
+    const [width, height] = boardSize;
+    const prompts = Array.from({ length: height }, () => Array(width).fill(0));
 
     // Проходимся по каждому элементу в bombsList
     bombsList.forEach((row, x) => {
@@ -35,5 +36,5 @@ export function generatePrompts(bombsList, boardSize) {
 
 // Функция для проверки допустимости ячейки
 function isValidCell(x, y, boardSize) {
-    return x >= 0 && x < boardSize && y >= 0 && y < boardSize;
+    return x >= 0 && x < boardSize[1] && y >= 0 && y < boardSize[0];
 }

@@ -12,8 +12,8 @@ import panelStyle from '../styles/panelStyle.css';
 
 const Game = ({ id, go, deviceWidth, size, numberOfBombs, showPopup, device, userId, user, deviceProp, setIsBanned }) => {
 
-    const boardHeight = numberOfTilesMap[size];
-    const boardWidth = numberOfTilesMap[size];
+    const boardHeight = numberOfTilesMap[size][0];
+    const boardWidth = numberOfTilesMap[size][1];
 
     const [countOfFlaggedTiles, setCountOfFlaggedTiles] = useState(0);
     const [isActionRegistered, setIsActionRegistered] = useState(false);

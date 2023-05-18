@@ -12,9 +12,19 @@ export const radioButtons = [
         value: 'm'
     },
     {
+        text: 'Эксперт',
+        description: 'Поле 8х10 | 20 бомб',
+        value: 'xm'
+    },
+    {
         text: 'Мастер',
         description: 'Поле 10х10 | 30 бомб',
         value: 'l'
+    },
+    {
+        text: 'Легенда',
+        description: 'Поле 10х15 | 50 бомб',
+        value: 'xl'
     }
 ];
 

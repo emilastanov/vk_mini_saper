@@ -5,15 +5,15 @@ export const calculateBoardConstants = (size, width) => {
 
     const deviceScale =
         width / (
-            sizeOfTileMap[size] * numberOfColumns +
-            tilesGap*(numberOfColumns - 1) +
+            sizeOfTileMap[size] * numberOfColumns[0] +
+            tilesGap*(numberOfColumns[0] - 1) +
             50
         );
     const sizeOfTiles = sizeOfTileMap[size] * deviceScale;
     const gap = tilesGap * deviceScale;
 
     const gridTemplateColumns = (
-        Array(numberOfColumns)
+        Array(numberOfColumns[0])
             .fill()
             .map(_ => (`${sizeOfTiles}px`))
     ).join(' ');
