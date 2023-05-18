@@ -29,6 +29,7 @@ const Game = ({ id, go, deviceWidth, size, numberOfBombs, showPopup, device, use
         createTiles(boardWidth, boardHeight)
     );
 
+
     const clearTiles = () => {
         setTilesState(createTiles(boardWidth, boardHeight));
         setStopwatchValue(0);
@@ -84,7 +85,7 @@ const Game = ({ id, go, deviceWidth, size, numberOfBombs, showPopup, device, use
         setCountOfFlaggedTiles(calculateCountOfFlaggedTiles());
     }, [tilesState, isAdsLoaded, isActionRegistered]);
 
-    return <Panel id={id} style={{position: 'fixed'}}>
+    return <Panel id={id} style={{position: size === 'xm' || size === 'xl' ? 'static' : 'fixed'}}>
         <PanelHeader before={<PanelHeaderBack onClick={handleGoBack} data-to="home" />}>
             Сапер
         </PanelHeader>
