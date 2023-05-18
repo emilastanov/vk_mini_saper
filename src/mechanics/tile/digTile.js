@@ -1,6 +1,7 @@
 import { explodeBombs } from "./explodeBombs";
 import { digAdjacentEmptyTiles } from "./digAdjacentEmptyTiles";
 import { getTileIndex } from "../../helpers/tileHelpers";
+import { doTaptic } from "../../helpers/vkBridgeHelpers";
 
 /**
  * Откапывает тайл (клетку) на игровом поле и выполняет соответствующие действия.
@@ -21,6 +22,8 @@ export function digTile(tileCoords, tiles, bombsList, prompts, setGameState) {
 
     if (hasBomb) {
         setGameState('GAME_OVER');
+        doTaptic('error')
+            .catch(e=>{console.log(e)});
 
         return explodeBombs(bombsList, updatedTiles); // Вызываем функцию взрыва бомб
 

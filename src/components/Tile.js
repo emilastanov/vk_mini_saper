@@ -7,12 +7,12 @@ import {Bomb} from "../static/icons/bomb";
 import boardStyle from '../styles/boardStyle.css';
 
 
-export const Tile = ({size, state, onClick}) => (
+export const Tile = ({size, state, ...props}) => (
 
     <div
         style={{width: size, height: size, fontSize: size*0.5, color: getTileTextColor(state.prompt)}}
         className={`board__cell ${(state.checked && 'checked') || (state.flagged && 'flagged')}`}
-        onClick={onClick}
+        {...props}
     >
         {state.exploded && <Bomb size={size*0.5} />}
         {state.flagged && <Flag size={size*0.5} />}
