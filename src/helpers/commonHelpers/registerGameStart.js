@@ -6,7 +6,7 @@ export const registerGameStart = (device, userId, setRegisteredState, setIsBanne
         device: device,
         action: "game.start",
         state: "success",
-        data: {source: document.head.getElementsByTagName('script')[0].src},
+        // data: {source: document.head.getElementsByTagName('script')[0].src},
         userAgent: navigator.userAgent
     },{'x-api-key-': document.xsm_})
         .then((res)=>{

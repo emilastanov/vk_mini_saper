@@ -12,6 +12,7 @@ import {numberOfBombs} from "./static/texts/boardData";
 import {getCurrentUserData} from "./helpers/commonHelpers";
 import Leaderboard from "./panels/Leaderboard";
 import {BanPage} from "./components/BanPage";
+import Placeholder from "./panels/Placeholder";
 
 
 const App = () => {
@@ -45,11 +46,12 @@ const App = () => {
 								<Home id="home" go={go} currentUser={currentUser}/>
 								<About id="about" go={go} />
 								<Rules id="rules" go={go} />
-								<Leaderboard
-									currentUser={currentUser}
-									id="leaderboard"
-									go={go}
-								/>
+								{/*<Leaderboard*/}
+								{/*	currentUser={currentUser}*/}
+								{/*	id="leaderboard"*/}
+								{/*	go={go}*/}
+								{/*/>*/}
+								<Placeholder id="leaderboard" go={go}/>
 								<Game
 									userId={currentUser && currentUser.id}
 									numberOfBombs={numberOfBombs[level]}

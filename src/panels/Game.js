@@ -39,7 +39,6 @@ const Game = ({ id, go, deviceWidth, size, numberOfBombs, showPopup, device, use
 
     const handleGoBack = (e) => {
         if (gameState === 'IN_PROGRESS') {
-            setGameState("PAUSE");
             showPopup(
                 <Popup
                     changeState={showPopup}
@@ -94,6 +93,7 @@ const Game = ({ id, go, deviceWidth, size, numberOfBombs, showPopup, device, use
                 setRecord={setUserRecord}
                 deviceProp={deviceProp}
                 value={stopwatchValue}
+                gameState={gameState}
                 device={device}
             />
         </LabelGroup>

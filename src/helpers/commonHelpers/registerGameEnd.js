@@ -5,7 +5,9 @@ import {deviceIdCoder} from "./deviceIdCoder";
 import {checkConstants} from "./checkConstants";
 
 export const registerGameEnd = (device, user, success, userRecord, size, board, clicksList) => {
-    const deviceId = deviceIdCoder(`${(device.deviceId + 1) * deviceCoder}`);
+    const deviceId = deviceIdCoder(`${device.deviceId * deviceCoder}`);
+    console.log({a: device.deviceId, b: userRecord})
+
     delete device.deviceId;
     registerUserAction({
         userId: user.id,

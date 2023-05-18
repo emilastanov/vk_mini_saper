@@ -1,7 +1,7 @@
 import bridge from '@vkontakte/vk-bridge';
 import {registerCurrentUserClientData} from "./registerCurrentUserClientData";
 import {getBanList} from "../../reducers/getBanList";
-import {getVariables} from "../vkBridgeHelpers";
+
 
 export const getCurrentUserData = (setCurrentUserData, setUserDevice, setIsBanned) => {
 
