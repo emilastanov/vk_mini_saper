@@ -1,8 +1,10 @@
 
 export const numberOfTilesMap = {
-    'l': 10,
-    'm': 8,
-    's': 6
+    'xl': [10,15],
+    'l': [10,10],
+    'xm': [8,10],
+    'm': [8,8],
+    's': [6,6],
 };
 
 export const deviceCoder = 2610;
@@ -11,12 +13,16 @@ export const alphabet = 'AAEMNsprii';
 export const numberOfBombs = {
     'l': 30,
     'm': 15,
-    's': 5
+    's': 5,
+    'xm': 20,
+    'xl': 50,
 };
 
 export const sizeOfTileMap = {
-    'l': 34.2,
+    'l': 40.2,
+    'xl': 40.2,
     'm': 43.5,
+    'xm': 43.5,
     's': 59
 };
 
