@@ -1,7 +1,7 @@
 import { explodeBombs } from "./explodeBombs";
 import { digAdjacentEmptyTiles } from "./digAdjacentEmptyTiles";
 import { getTileIndex } from "../../helpers/tileHelpers";
-import {doTaptic} from "../../helpers/vkBridgeHelpers";
+import { doTaptic } from "../../helpers/vkBridgeHelpers";
 
 /**
  * Откапывает тайл (клетку) на игровом поле и выполняет соответствующие действия.
