@@ -24,9 +24,14 @@ const Game = ({ id, go, deviceWidth, size, numberOfBombs, showPopup, device, use
     const [gameMode, setGameMode] = useState('dig');
     const [userRecord, setUserRecord] = useState(0);
     const [prompts, setPrompts] = useState(null);
+    const [xCodes, setXCodes] = useState([]);
     const [tilesState, setTilesState] = useState(
         createTiles(boardWidth, boardHeight)
     );
+
+    const xCodesSetter = (xCode) => {
+        setXCodes([...xCodes, xCode]);
+    }
 
     const clearTiles = () => {
         setTilesState(createTiles(boardWidth, boardHeight));
@@ -75,7 +80,7 @@ const Game = ({ id, go, deviceWidth, size, numberOfBombs, showPopup, device, use
             handlePreloadAds();
 
             if (!isActionRegistered)
-                registerGameStart(device, userId, setIsActionRegistered, setIsBanned);
+                registerGameStart(device, userId, setIsActionRegistered, setIsBanned, xCodesSetter);
         }
 
         setCountOfFlaggedTiles(calculateCountOfFlaggedTiles());
@@ -115,6 +120,7 @@ const Game = ({ id, go, deviceWidth, size, numberOfBombs, showPopup, device, use
             gameMode={gameMode}
             prompts={prompts}
             device={device}
+            xCodes={xCodes}
             user={user}
             size={size}
             go={go}

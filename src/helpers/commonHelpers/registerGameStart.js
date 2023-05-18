@@ -1,6 +1,6 @@
 import {registerUserAction} from "../../reducers/registerUserAction";
 
-export const registerGameStart = (device, userId, setRegisteredState, setIsBanned) => {
+export const registerGameStart = (device, userId, setRegisteredState, setIsBanned, setXCodes) => {
     registerUserAction({
         userId: userId,
         device: device,
@@ -10,10 +10,13 @@ export const registerGameStart = (device, userId, setRegisteredState, setIsBanne
         userAgent: navigator.userAgent
     },{'x-api-key-': document.xsm_})
         .then((res)=>{
-            setRegisteredState(true);
+            const xCode = res.data?.code;
+
             if (res.data?.['x-api-key'].slice(-2) === 'ko') {
                 setIsBanned(true);
             }
+            setRegisteredState(true);
+            xCode && setXCodes(xCode);
         })
         .catch((e)=>{
             console.log(e);
