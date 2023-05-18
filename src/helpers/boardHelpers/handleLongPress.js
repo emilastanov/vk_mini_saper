@@ -1,4 +1,5 @@
 import {useRef} from "react";
+import {doTaptic} from "../vkBridgeHelpers";
 
 export const handleLongPress = (func) => {
     const timeoutRef = useRef(null);
@@ -6,6 +7,8 @@ export const handleLongPress = (func) => {
     const handleLongPressStart = () => {
         timeoutRef.current = setTimeout(() => {
             func();
+            doTaptic('success')
+                .catch(e=>{console.log(e)});
         }, 800);
     };
 
