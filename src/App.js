@@ -46,12 +46,12 @@ const App = () => {
 								<Home id="home" go={go} currentUser={currentUser}/>
 								<About id="about" go={go} />
 								<Rules id="rules" go={go} />
-								{/*<Leaderboard*/}
-								{/*	currentUser={currentUser}*/}
-								{/*	id="leaderboard"*/}
-								{/*	go={go}*/}
-								{/*/>*/}
-								<Placeholder id="leaderboard" go={go}/>
+								<Leaderboard
+									currentUser={currentUser}
+									id="leaderboard"
+									go={go}
+								/>
+								{/*<Placeholder id="leaderboard" go={go}/>*/}
 								<Game
 									userId={currentUser && currentUser.id}
 									numberOfBombs={numberOfBombs[level]}
