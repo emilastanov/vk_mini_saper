@@ -20,7 +20,7 @@ import {LeaderboardList} from "../components/LeaderboardList";
 
 
 const Leaderboard = ({ id, go, currentUser }) => {
-    const [category, setCategory] = useState('s');
+    const [category, setCategory] = useState('m');
     const [leaderboard, setLeaderboard] = useState(null);
 
     useEffect(()=>{

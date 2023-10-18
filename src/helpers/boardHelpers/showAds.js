@@ -8,6 +8,7 @@ export const showAds = () => {
 
 export const showBannerAds = () => {
     return bridge.send('VKWebAppShowBannerAd', {
-        banner_location: 'bottom'
+        banner_location: 'bottom',
+        layout_type: 'overlay'
     });
 };

@@ -8,6 +8,8 @@ import {registerGameStart} from "../helpers/commonHelpers";
 import {createTiles} from "../helpers/tileHelpers";
 
 import panelStyle from '../styles/panelStyle.css';
+import {showInformationScreen} from "../helpers/vkBridgeHelpers/showInformationScreen";
+import {placeholder} from "../static/images/blob";
 
 
 const Game = ({ id, go, deviceWidth, size, numberOfBombs, showPopup, device, userId, user, deviceProp, setIsBanned }) => {
