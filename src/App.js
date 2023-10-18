@@ -12,7 +12,8 @@ import {numberOfBombs} from "./static/texts/boardData";
 import {getCurrentUserData} from "./helpers/commonHelpers";
 import Leaderboard from "./panels/Leaderboard";
 import {BanPage} from "./components/BanPage";
-import Placeholder from "./panels/Placeholder";
+import {setStatusBarColor} from "./helpers/vkBridgeHelpers";
+import {showOnBoardingIfItDidNotShow} from "./helpers/commonHelpers/showOnBoardingIfItDidNotShow";
 
 
 const App = () => {
@@ -27,7 +28,9 @@ const App = () => {
 
 	useEffect(() => {
 		getCurrentUserData(setCurrentUser, setUserDevice, setIsBanned);
+		setStatusBarColor().catch(e=>{console.log(e)});
 		setDeviceWidth(window.innerWidth);
+		showOnBoardingIfItDidNotShow();
 	}, []);
 
 	const go = e => {
