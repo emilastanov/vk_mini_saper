@@ -29,7 +29,7 @@ export const onBoardingScreensData = [
             blob: `data:image/png;base64,${markBombScreen}`,
             type: 'image'
         },
-        title: 'Пометьте бомбы флагом.',
+        title: 'Пометь бомбы флагом.',
         subtitle: 'Чтобы пометить клетку с бомбой флагом, просто удерживай палец на этой клетке, или активируй режим расставления флагов.'
     },
     {
@@ -37,7 +37,7 @@ export const onBoardingScreensData = [
             blob: `data:image/png;base64,${leaderboardScreen}`,
             type: 'image'
         },
-        title: 'Таблица лидеров: Покорите все уровни сложности!',
+        title: 'Таблица лидеров: Покори все уровни сложности!',
         subtitle: 'Посмотри, какие саперы лидируют в различных категориях. Ты можешь выбрать уровень и увидеть список игроков.'
     },
     {
@@ -45,7 +45,7 @@ export const onBoardingScreensData = [
             blob: `data:image/png;base64,${makePostScreen}`,
             type: 'image'
         },
-        title: 'Поделитесь своим результатом!',
+        title: 'Поделись своим результатом!',
         subtitle: 'Твои достижения заслуживают внимания. Нажми кнопку "Поделиться", чтобы рассказать о своем результате в игре.'
     },
     {
@@ -53,7 +53,7 @@ export const onBoardingScreensData = [
             blob: `data:image/png;base64,${settingsScreen}`,
             type: 'image'
         },
-        title: 'Выберите уровень сложности.',
+        title: 'Выбери уровень сложности.',
         subtitle: 'Выбери желаемый уровень сложности, который соответствует твоим навыкам в сапере. После выбора уровня, нажми "Ок".'
     },
     {
