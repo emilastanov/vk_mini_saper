@@ -1,6 +1,7 @@
 import bridge from '@vkontakte/vk-bridge';
 import {registerCurrentUserClientData} from "./registerCurrentUserClientData";
 import {getBanList} from "../../reducers/getBanList";
+import {showOnBoardingIfItDidNotShow} from "./showOnBoardingIfItDidNotShow";
 
 
 export const getCurrentUserData = (setCurrentUserData, setUserDevice, setIsBanned) => {
@@ -14,8 +15,9 @@ export const getCurrentUserData = (setCurrentUserData, setUserDevice, setIsBanne
             console.log(e);
         });
         registerCurrentUserClientData(data.id, setUserDevice);
+        showOnBoardingIfItDidNotShow(data.id);
     }).catch((e)=>{
         setCurrentUserData(false);
         console.log(e);
-    })
+    });
 }

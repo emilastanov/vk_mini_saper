@@ -8,6 +8,8 @@ import {Popup, Tile} from "./";
 import boardStyle from '../styles/boardStyle.css';
 import {registerGameEnd} from "../helpers/commonHelpers";
 import {handleLongPress} from "../helpers/boardHelpers/handleLongPress";
+import {showInformationScreen} from "../helpers/vkBridgeHelpers/showInformationScreen";
+import {switchOffAdsTipData} from "../static/texts/switchOffAdsTipData";
 // import {registerUsersStep} from "../helpers/commonHelpers/registerUsersStep";
 
 
@@ -93,9 +95,10 @@ export const Board = ({
     useEffect(()=>{
         if ( ["GAME_OVER", "WIN"].includes(gameState) ) {
             if (gameState === "GAME_OVER") {
-                showAds().catch((e)=>{
-                    console.log({ads: "showClip", e})
-                });
+                showAds(user.id)
+                    .catch((e)=>{
+                        console.log({ads: "showClip", e})
+                    });
             }
             registerGameEnd(device, user, gameState === "WIN", userRecord, size, bombsList, clicksList, xCode);
             setClicksList([]);
