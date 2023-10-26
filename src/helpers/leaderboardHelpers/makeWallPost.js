@@ -1,8 +1,9 @@
-import {sendWallPost} from "../vkBridgeHelpers";
+import {sendWallPost, setVariable} from "../vkBridgeHelpers";
 import {wallPost, appLink} from "../../static/texts/postsData";
 import {categories} from "../../static/texts/leaderboardData";
 import {makeStopwatchString} from "../commonHelpers/makeStopwatchString";
 import {registerWallPost} from "../commonHelpers/registerWallPost";
+import {savePostDataInStorage} from "../commonHelpers";
 
 export const makeWallPost = (userData) => {
     sendWallPost({
@@ -14,8 +15,11 @@ export const makeWallPost = (userData) => {
         attachments: appLink
     })
         .then((data)=>{
-            userData.post = data;
-            registerWallPost(userData, true);
+            if (data.post_id) {
+                userData.post = data;
+                registerWallPost(userData, true);
+                savePostDataInStorage(data);
+            }
         })
         .catch((error) => {
             userData.error = error;

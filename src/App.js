@@ -14,6 +14,7 @@ import Leaderboard from "./panels/Leaderboard";
 import {BanPage} from "./components/BanPage";
 import {setStatusBarColor} from "./helpers/vkBridgeHelpers";
 import {showOnBoardingIfItDidNotShow} from "./helpers/commonHelpers/showOnBoardingIfItDidNotShow";
+import {checkPost} from "./reducers/checkPost";
 
 
 const App = () => {
@@ -30,7 +31,6 @@ const App = () => {
 		getCurrentUserData(setCurrentUser, setUserDevice, setIsBanned);
 		setStatusBarColor().catch(e=>{console.log(e)});
 		setDeviceWidth(window.innerWidth);
-		showOnBoardingIfItDidNotShow();
 	}, []);
 
 	const go = e => {

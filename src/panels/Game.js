@@ -70,7 +70,7 @@ const Game = ({ id, go, deviceWidth, size, numberOfBombs, showPopup, device, use
             });
 
             if (size !== "xl") {
-                showBannerAds()
+                showBannerAds(userId)
                     .catch((e)=>{
                         console.log({ads: "showBanner", e});
                     });

@@ -17,23 +17,39 @@ const Home = ({ id, go }) => (
 					mode="vertical"
 					stretched
 				>
-					{buttons.map(({
-							className,
-							text,
-							mode,
-							goTo
-					})=>(
-						<Button
-							className={className}
-							data-to={goTo}
-							onClick={go}
-							mode={mode}
-							stretched
-							size="l"
-						>
-							{text}
-						</Button>
-					))}
+					{buttons.map((button)=> {
+						if (button.length === 1){
+							const {className, text, mode, goTo, action} = button[0];
+							return <Button
+								className={className}
+								data-to={goTo}
+								onClick={action || go}
+								mode={mode}
+								stretched
+								size="l"
+							>
+								{text}
+							</Button>
+						} else {
+							return <ButtonGroup
+								mode="horizontal"
+								stretched
+							>
+								{button.map(({className, text, mode, goTo, action})=>(
+									<Button
+									className={className}
+									data-to={goTo}
+									onClick={action || go}
+									mode={mode}
+									stretched
+									size="l"
+									>
+								{text}
+									</Button>
+									))}
+							</ButtonGroup>
+						}
+					})}
 				</ButtonGroup>
 				<div className="icon">
 					<PatchedBomb size={iconSize}/>
