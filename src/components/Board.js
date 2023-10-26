@@ -8,9 +8,6 @@ import {Popup, Tile} from "./";
 import boardStyle from '../styles/boardStyle.css';
 import {registerGameEnd} from "../helpers/commonHelpers";
 import {handleLongPress} from "../helpers/boardHelpers/handleLongPress";
-import {showInformationScreen} from "../helpers/vkBridgeHelpers/showInformationScreen";
-import {switchOffAdsTipData} from "../static/texts/switchOffAdsTipData";
-// import {registerUsersStep} from "../helpers/commonHelpers/registerUsersStep";
 
 
 export const Board = ({
