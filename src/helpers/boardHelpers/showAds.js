@@ -12,6 +12,6 @@ export const showBannerAds = async (userId) => {
     const isUserHavePost = await checkPostDataInStorage(userId);
     return !isUserHavePost && bridge.send('VKWebAppShowBannerAd', {
         banner_location: 'bottom',
-        layout_type: 'overlay'
+        layout_type: 'resize'
     });
 };
